@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>오프라인 보드게임 모듈 구성도</title>
+<link rel="stylesheet" href="slide.css">
+</head>
+<body data-index="6" data-total="24">
+<div class="slide" data-item="1">
+  <div class="rail">
+    <span class="tag">ITEM 01</span>
+    <span class="who">오프라인 모바일 보드게임</span>
+    <span class="sep"></span>
+    <span class="sec">모듈 구성도</span>
+    <span class="no">06 / 24</span>
+  </div>
+  <div class="canvas">
+    <h1 class="title">모듈 구성과 상호 관계</h1>
+    <div class="diagram">
+      <svg viewBox="0 0 1090 350" role="img" aria-label="호스트 기기 내부 모듈과 클라이언트 연결 구조도">
+        <defs>
+          <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#B4332C"/>
+          </marker>
+        </defs>
+        <style>
+          .bx{fill:#FFFFFF;stroke:#DCD7CC;stroke-width:1.2}
+          .gp{fill:#FDF8F7;stroke:#E7C8C4;stroke-width:1.4}
+          .ac{fill:#FBF1EF;stroke:#E7C8C4;stroke-width:1.2}
+          .t{font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:12.5px;font-weight:600;fill:#16181D;text-anchor:middle}
+          .s{font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:10.5px;fill:#7C7669;text-anchor:middle}
+          .gt{font-family:Pretendard,'Malgun Gothic',sans-serif;font-size:12px;font-weight:700;fill:#B4332C}
+          .ln{stroke:#B4332C;stroke-width:1.4;fill:none;marker-end:url(#ar)}
+          .lnd{stroke:#C9BFB4;stroke-width:1.2;fill:none;stroke-dasharray:4 3;marker-end:url(#ar)}
+        </style>
+
+        <rect class="ac" x="8" y="120" width="132" height="74" rx="5"/>
+        <text class="t" x="74" y="150">룰 콘텐츠 팩</text>
+        <text class="s" x="74" y="168">JSON &middot; 게임 A/B/C</text>
+
+        <rect class="gp" x="160" y="10" width="430" height="310" rx="7"/>
+        <text class="gt" x="178" y="34">호스트 기기 (1대)</text>
+
+        <rect class="bx" x="178" y="50" width="185" height="50" rx="5"/>
+        <text class="t" x="270" y="73">로비 &middot; 세션 관리</text>
+        <text class="s" x="270" y="89">참가자 입장 &middot; 순서</text>
+
+        <rect class="ac" x="383" y="50" width="185" height="50" rx="5"/>
+        <text class="t" x="475" y="73">게임 상태 엔진</text>
+        <text class="s" x="475" y="89">권위 판정 &middot; 이벤트 소싱</text>
+
+        <rect class="bx" x="178" y="116" width="185" height="50" rx="5"/>
+        <text class="t" x="270" y="139">룰 DSL 인터프리터</text>
+        <text class="s" x="270" y="155">게임 규칙 해석</text>
+
+        <rect class="ac" x="383" y="116" width="185" height="50" rx="5"/>
+        <text class="t" x="475" y="139">로컬 웹서버</text>
+        <text class="s" x="475" y="155">HTTP &middot; WebSocket</text>
+
+        <rect class="bx" x="178" y="182" width="185" height="50" rx="5"/>
+        <text class="t" x="270" y="205">퍼블릭 뷰 렌더러</text>
+        <text class="s" x="270" y="221">공용 보드 &middot; 점수판</text>
+
+        <rect class="bx" x="383" y="182" width="185" height="50" rx="5"/>
+        <text class="t" x="475" y="205">프라이빗 뷰 렌더러</text>
+        <text class="s" x="475" y="221">호스트 본인 손패</text>
+
+        <rect class="bx" x="178" y="248" width="390" height="50" rx="5"/>
+        <text class="t" x="373" y="271">상태 스냅샷 &middot; 재접속 복구 모듈</text>
+        <text class="s" x="373" y="287">호스트 이탈 &middot; 클라이언트 끊김 대응</text>
+
+        <rect class="ac" x="620" y="105" width="140" height="110" rx="5"/>
+        <text class="t" x="690" y="140">연결 계층</text>
+        <text class="s" x="690" y="160">Wi-Fi 핫스팟</text>
+        <text class="s" x="690" y="176">QR 코드 접속</text>
+        <text class="s" x="690" y="192">WebSocket 채널</text>
+
+        <rect class="bx" x="790" y="40" width="200" height="60" rx="5"/>
+        <text class="t" x="890" y="64">참가자 기기 ①</text>
+        <text class="s" x="890" y="82">브라우저 PWA &middot; 프라이빗 뷰</text>
+
+        <rect class="bx" x="790" y="125" width="200" height="60" rx="5"/>
+        <text class="t" x="890" y="149">참가자 기기 ②</text>
+        <text class="s" x="890" y="167">브라우저 PWA &middot; 프라이빗 뷰</text>
+
+        <rect class="bx" x="790" y="210" width="200" height="60" rx="5"/>
+        <text class="t" x="890" y="234">참가자 기기 ③ &hellip; ⑦</text>
+        <text class="s" x="890" y="252">브라우저 PWA &middot; 프라이빗 뷰</text>
+
+        <path class="ln" d="M143,152 L174,144"/>
+        <path class="ln" d="M363,75 L379,75"/>
+        <path class="ln" d="M475,102 L475,113"/>
+        <path class="ln" d="M363,141 L379,141"/>
+        <path class="ln" d="M475,168 L475,179"/>
+        <path class="ln" d="M270,168 L270,179"/>
+        <path class="ln" d="M373,234 L373,245"/>
+        <path class="ln" d="M570,141 L616,150"/>
+        <path class="ln" d="M763,150 L786,80"/>
+        <path class="ln" d="M763,160 L786,155"/>
+        <path class="ln" d="M763,172 L786,232"/>
+        <path class="lnd" d="M690,219 L690,262 L574,262"/>
+      </svg>
+    </div>
+    <div class="legend">
+      <i><span class="sw" style="background:#FBF1EF;border:1px solid #E7C8C4"></span>핵심 모듈 (난이도 상)</i>
+      <i><span class="sw" style="background:#fff;border:1px solid #DCD7CC"></span>일반 모듈</i>
+      <i><svg width="26" height="8"><line x1="0" y1="4" x2="26" y2="4" stroke="#B4332C" stroke-width="1.4"/></svg>실시간 데이터 흐름</i>
+      <i><svg width="26" height="8"><line x1="0" y1="4" x2="26" y2="4" stroke="#C9BFB4" stroke-width="1.2" stroke-dasharray="4 3"/></svg>복구 시 상태 전달</i>
+    </div>
+  </div>
+</div>
+<script src="slide.js"></script>
+</body>
+</html>

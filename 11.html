@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>창작 어시스턴트 해결 시나리오</title>
+<link rel="stylesheet" href="slide.css">
+</head>
+<body data-index="11" data-total="24">
+<div class="slide" data-item="2">
+  <div class="rail">
+    <span class="tag">ITEM 02</span>
+    <span class="who">창작 설정 검증 어시스턴트</span>
+    <span class="sep"></span>
+    <span class="sec">해결 시나리오 &middot; 접근 방법</span>
+    <span class="no">11 / 24</span>
+  </div>
+  <div class="canvas">
+    <h1 class="title">글을 쓰면 <em>설정집이 따라 자란다</em></h1>
+    <p class="lede">작가는 평소처럼 쓰기만 하고, 설정의 축적과 검증은 도구가 배경에서 수행합니다.</p>
+    <div class="row c2b grow">
+      <div class="card">
+        <h3><span class="dot"></span>사용 시나리오</h3>
+        <ol class="steps">
+          <li>기존 원고와 설정집을 올리면 <b>인물 &middot; 장소 &middot; 사건 &middot; 규칙</b>을 엔티티로 자동 추출</li>
+          <li>추출 결과는 <b>지식그래프</b>로 쌓고, 원문은 <b>벡터 인덱스</b>로 검색 가능하게 저장</li>
+          <li>집필 중 문단이 바뀔 때마다 <b>변경분만 증분 분석</b>해 비용과 지연을 최소화</li>
+          <li>기존 설정과 충돌하면 그 자리에 <b>밑줄 경고 + 근거가 된 원문 위치</b>를 함께 표시</li>
+          <li>우측 패널에는 <b>캐릭터 상태&middot;감정 타임라인</b>과 자동 챕터 요약이 실시간 갱신</li>
+          <li>의도한 설정 변경이면 <b>예외로 등록</b>해 이후 같은 경고를 띄우지 않음</li>
+        </ol>
+      </div>
+      <div class="stack">
+        <div class="card fill">
+          <h3><span class="dot"></span>문제 &rarr; 해결 방법 대응</h3>
+          <ul class="list tight">
+            <li>기억 한계 &rarr; <b>지식그래프에 속성 타임라인</b>으로 축적</li>
+            <li>컨텍스트 한계 &rarr; <b>RAG로 관련 근거만</b> 선별해 모델에 투입</li>
+            <li>오탐 불신 &rarr; <b>근거 원문 인용 의무화</b> + 신뢰도 등급 표시</li>
+            <li>의도된 반전 &rarr; <b>권고 수준 경고</b>와 예외 등록 학습</li>
+            <li>비용&middot;지연 &rarr; <b>증분 처리 + 결과 캐싱</b>, 판정 단계만 큰 모델</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3><span class="dot"></span>사용 기술 &middot; 개발 환경</h3>
+          <div class="tags">
+            <span>Claude API (claude-sonnet-5)</span><span>구조화 출력 JSON Schema</span><span>로컬 LLM (Ollama)</span>
+            <span>Chroma 벡터 DB</span><span>Neo4j 지식그래프</span><span>FastAPI</span><span>React &middot; ProseMirror</span><span>Python 3.12</span><span>Docker Compose</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="slide.js"></script>
+</body>
+</html>

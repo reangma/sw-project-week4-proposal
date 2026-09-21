@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>엘리베이터 오토패스 기대 효과</title>
+<link rel="stylesheet" href="slide.css">
+</head>
+<body data-index="19" data-total="24">
+<div class="slide" data-item="3">
+  <div class="rail">
+    <span class="tag">ITEM 03</span>
+    <span class="who">영상 기반 엘리베이터 오토패스</span>
+    <span class="sep"></span>
+    <span class="sec">기대 효과 &middot; 성공 기준 &middot; 대상</span>
+    <span class="no">19 / 24</span>
+  </div>
+  <div class="canvas">
+    <h1 class="title">카메라 한 대로 <em>헛정차를 없앤다</em></h1>
+    <div class="row c2 grow">
+      <div class="card">
+        <h3><span class="dot"></span>최종 완성 모습</h3>
+        <ul class="list">
+          <li>카 내부 <b>카메라 1대와 엣지 보드 1개</b>만 추가하면 동작하는, 기존 설비에 덧붙이는 형태</li>
+          <li>현재 탑승 인원과 포화도가 <b>실시간 숫자로 표시</b>되고, 만원이면 해당 층 통과를 권고</li>
+          <li>관제 화면에서 <b>층별 대기 인원 히트맵</b>으로 어느 층이 몰리는지 한눈에 확인</li>
+          <li>시뮬레이터에서 동일 호출 패턴에 대해 <b>기존 방식과 제안 방식의 대기시간을 직접 비교</b></li>
+          <li>영상이 장비 밖으로 나가지 않는 <b>개인정보 무전송 구조</b>를 설계 단계부터 보장</li>
+        </ul>
+      </div>
+      <div class="card fill">
+        <h3><span class="dot"></span>주 사용 대상과 사용 시나리오</h3>
+        <ul class="list">
+          <li><b>대학 &middot; 오피스 빌딩 시설관리팀</b> &mdash; 피크 시간 민원이 집중되는 현장</li>
+          <li><b>엘리베이터 유지보수 업체</b> &mdash; 기존 설비를 교체하지 않고 덧붙이는 개선 상품</li>
+          <li><b>병원 &middot; 물류창고 승강기</b> &mdash; 침대&middot;카트 등 부피가 커 무게 기준이 특히 부정확한 환경</li>
+          <li>확장 &mdash; <b>지하철 게이트 &middot; 셔틀버스 &middot; 강의실</b> 등 혼잡도 판단이 필요한 공간 전반</li>
+        </ul>
+        <p style="margin-top:2px;font-size:13px;color:var(--muted);line-height:1.55;">예시 &mdash; 9시 5분, 1층에서 만원으로 출발한 차가 3&middot;4&middot;5층 호출을 모두 통과하고 8층으로 직행한다. 3층 대기자는 뒤따르는 빈 차를 배정받는다.</p>
+      </div>
+    </div>
+    <div>
+      <span class="kicker" style="display:block;margin-bottom:8px;">성공 판단 기준</span>
+      <div class="metrics">
+        <div class="metric"><span class="v">&le; 1.0명</span><span class="k">탑승 인원 추정<br>평균 오차 (MAE)</span></div>
+        <div class="metric"><span class="v">90%</span><span class="k">포화 / 비포화<br>분류 정확도</span></div>
+        <div class="metric"><span class="v">15 FPS</span><span class="k">엣지 장비에서의<br>실시간 처리 속도</span></div>
+        <div class="metric"><span class="v">50%</span><span class="k">시뮬레이션 기준<br>헛정차 감소율</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="slide.js"></script>
+</body>
+</html>

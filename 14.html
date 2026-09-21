@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>창작 어시스턴트 예상 문제</title>
+<link rel="stylesheet" href="slide.css">
+</head>
+<body data-index="14" data-total="24">
+<div class="slide" data-item="2">
+  <div class="rail">
+    <span class="tag">ITEM 02</span>
+    <span class="who">창작 설정 검증 어시스턴트</span>
+    <span class="sep"></span>
+    <span class="sec">예상 문제 &middot; 요소 기술</span>
+    <span class="no">14 / 24</span>
+  </div>
+  <div class="canvas">
+    <h1 class="title">예상되는 문제와 대응 방안</h1>
+    <div class="card grow" style="padding-top:12px;">
+      <table class="tbl">
+        <thead>
+          <tr><th style="width:110px">구분</th><th style="width:330px">예상 문제</th><th>대응 방안</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="name">보안 &middot; 저작권</td><td><b>미공개 원고를 외부 LLM API로 전송</b>하는 구조 자체가 작가에게 가장 큰 진입 장벽</td><td><b>로컬 LLM 모드를 병행</b> 제공, 전송 구간 암호화, 서버에 원고를 보관하지 않는 무저장 정책 명시</td></tr>
+          <tr><td class="name">데이터셋</td><td>모순 탐지 성능을 측정할 <b>공개 평가 데이터셋이 존재하지 않음</b></td><td>저작권이 만료된 공개 소설에 <b>모순을 인위적으로 주입한 자체 벤치마크</b>를 구축해 탐지율&middot;오탐율 측정</td></tr>
+          <tr><td class="name">기술</td><td>LLM 호출 <b>비용과 응답 지연</b> &mdash; 매 문단마다 전체를 재분석하면 실사용 불가</td><td>변경분만 <b>증분 처리</b>하고 결과를 캐싱, 추출은 작은 모델&middot;최종 판정만 큰 모델로 분리</td></tr>
+          <tr><td class="name">기술</td><td>한국어의 <b>별칭 &middot; 호칭 &middot; 주어 생략</b>으로 같은 인물을 하나로 묶기 어려움 (상호참조 해소)</td><td>별칭 사전을 함께 관리하고, 애매한 경우 <b>사용자가 수동 병합</b>할 수 있는 UI 제공</td></tr>
+          <tr><td class="name">신뢰성</td><td><b>오탐이 누적되면 도구 전체의 신뢰를 잃음</b> &mdash; 한 번의 헛경고가 이탈로 이어짐</td><td>경고에 <b>신뢰도 등급</b>을 표시하고 높은 등급만 기본 노출, 근거 없는 판정은 출력 단계에서 차단</td></tr>
+          <tr><td class="name">범위</td><td>세계관 &middot; 감정 &middot; 문체까지 모두 다루면 <b>학기 내 완성 불가</b></td><td>중간발표까지는 <b>인물 생사 &middot; 속성 &middot; 시간선 모순</b> 3종에 집중하고, 감정 추적은 이후 확장</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <span class="kicker" style="display:block;margin-bottom:8px;">제안 방식의 요소 기술</span>
+      <div class="tags">
+        <span>RAG 검색 증강 생성</span><span>지식그래프 스키마 설계</span><span>개체명 인식 &middot; 상호참조 해소</span>
+        <span>LLM 구조화 출력 (JSON Schema)</span><span>증분 인덱싱 &middot; 변경 감지</span><span>임베딩 유사도 검색</span><span>근거 기반 판정 (Grounding)</span>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="slide.js"></script>
+</body>
+</html>

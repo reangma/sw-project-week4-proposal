@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>엘리베이터 오토패스 해결 시나리오</title>
+<link rel="stylesheet" href="slide.css">
+</head>
+<body data-index="17" data-total="24">
+<div class="slide" data-item="3">
+  <div class="rail">
+    <span class="tag">ITEM 03</span>
+    <span class="who">영상 기반 엘리베이터 오토패스</span>
+    <span class="sep"></span>
+    <span class="sec">해결 시나리오 &middot; 접근 방법</span>
+    <span class="no">17 / 24</span>
+  </div>
+  <div class="canvas">
+    <h1 class="title">무게 대신 <em>눈으로 본다</em></h1>
+    <p class="lede">영상은 엣지 장비 안에서만 처리하고, 밖으로는 인원수와 포화도라는 숫자만 내보냅니다.</p>
+    <div class="row c2b grow">
+      <div class="card">
+        <h3><span class="dot"></span>동작 시나리오</h3>
+        <ol class="steps">
+          <li>카 내부 카메라와 승강장 카메라 영상을 <b>엣지 디바이스가 직접 수신</b></li>
+          <li>어안 왜곡을 보정한 뒤 <b>머리 검출과 군중 밀도 추정</b>으로 인원수와 점유 면적을 산출</li>
+          <li>도어 라인 통과를 추적해 <b>승하차 인원을 카운팅</b>하고, 포화도(0&ndash;1)를 실시간 보정</li>
+          <li>호출 버튼 &middot; 현재 층 &middot; 운행 방향과 결합해 <b>바이패스 여부를 판단</b></li>
+          <li>영상은 엣지 밖으로 나가지 않고, <b>숫자만 관제 대시보드로 전송</b></li>
+          <li>실제 제어 대신 <b>시뮬레이터에 정책을 적용</b>해 대기시간 개선 효과를 측정</li>
+        </ol>
+      </div>
+      <div class="stack">
+        <div class="card fill">
+          <h3><span class="dot"></span>문제 &rarr; 해결 방법 대응</h3>
+          <ul class="list tight">
+            <li>무게 기준의 부정확성 &rarr; <b>실제 점유 면적</b>을 호모그래피로 계산</li>
+            <li>밀집 가림 &rarr; <b>머리 검출 + 밀도 추정 앙상블</b>로 과소 추정 보완</li>
+            <li>대기 수요 미파악 &rarr; <b>승강장 카메라</b>로 층별 대기 인원 산출</li>
+            <li>개인정보 &rarr; <b>온디바이스 처리</b>, 원본 미저장&middot;미전송</li>
+            <li>실제 제어 불가 &rarr; <b>권고 출력 + 시뮬레이터</b>로 효과 검증</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3><span class="dot"></span>사용 기술 &middot; 개발 환경</h3>
+          <div class="tags">
+            <span>YOLOv11 head detection</span><span>CrowdHuman 전이학습</span><span>P2PNet 밀도 추정</span>
+            <span>ByteTrack</span><span>OpenCV 캘리브레이션</span><span>PyTorch &rarr; ONNX &rarr; TensorRT</span>
+            <span>Jetson Orin Nano</span><span>MQTT</span><span>SimPy 이산사건 시뮬레이터</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="slide.js"></script>
+</body>
+</html>

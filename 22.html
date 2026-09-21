@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>향후 일정 타임라인</title>
+<link rel="stylesheet" href="slide.css">
+<style>
+  .gantt{display:grid;grid-template-columns:200px repeat(12,1fr);column-gap:4px;row-gap:7px;align-items:center;}
+  .gh{display:flex;flex-direction:column;align-items:center;gap:1px;padding-bottom:8px;border-bottom:1px solid var(--line);}
+  .gh b{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--ink);}
+  .gh span{font-family:var(--mono);font-size:10px;color:var(--muted);}
+  .gh.mid{background:#FAF6EE;border-bottom:1px solid #D9C9A8;border-radius:4px 4px 0 0;}
+  .gh.mid b{color:#8A6D2F;}
+  .gl{font-size:13px;color:var(--ink2);text-align:right;padding-right:12px;font-weight:600;}
+  .bar{height:26px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:11.5px;font-weight:700;color:#fff;letter-spacing:-0.01em;}
+  .b1{background:#B4332C;}
+  .b2{background:#8E8375;}
+  .b3{background:#2F5D50;}
+  .b4{background:#1B4A8A;}
+  .b0{background:#fff;border:1.5px dashed #C2BCB1;color:var(--muted);}
+  .ms{background:#8A6D2F;box-shadow:0 0 0 3px #F7EEDC;}
+  .today{position:relative;}
+  .today::after{content:"오늘";position:absolute;top:-15px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:9.5px;color:#B4332C;font-weight:600;}
+</style>
+</head>
+<body data-index="22" data-total="24">
+<div class="slide">
+  <div class="rail">
+    <span class="who">향후 일정</span>
+    <span class="sep"></span>
+    <span class="sec">중간발표 &middot; 최종발표 기준 타임라인</span>
+    <span class="no">22 / 24</span>
+  </div>
+  <div class="canvas">
+    <h1 class="title">4주차 제안에서 15주차 최종 발표까지</h1>
+    <div class="gantt">
+      <div></div>
+      <div class="gh"><b>4주</b><span>9/28</span></div>
+      <div class="gh"><b>5주</b><span>10/5</span></div>
+      <div class="gh"><b>6주</b><span>10/12</span></div>
+      <div class="gh"><b>7주</b><span>10/19</span></div>
+      <div class="gh mid"><b>8주</b><span>10/26</span></div>
+      <div class="gh"><b>9주</b><span>11/2</span></div>
+      <div class="gh"><b>10주</b><span>11/9</span></div>
+      <div class="gh"><b>11주</b><span>11/16</span></div>
+      <div class="gh"><b>12주</b><span>11/23</span></div>
+      <div class="gh"><b>13주</b><span>11/30</span></div>
+      <div class="gh"><b>14주</b><span>12/7</span></div>
+      <div class="gh"><b>15주</b><span>12/14</span></div>
+
+      <div class="gl" style="grid-row:2;grid-column:1">아이디어 3종 제안</div>
+      <div class="bar b1 today" style="grid-row:2;grid-column:2/3">발표</div>
+
+      <div class="gl" style="grid-row:3;grid-column:1">아이템 확정 &middot; 요구사항 명세</div>
+      <div class="bar b2" style="grid-row:3;grid-column:3/4">확정 &middot; 기술 PoC</div>
+
+      <div class="gl" style="grid-row:4;grid-column:1">핵심 모듈 프로토타입</div>
+      <div class="bar b2" style="grid-row:4;grid-column:4/6">가장 불확실한 모듈부터 선제 구현</div>
+
+      <div class="gl" style="grid-row:5;grid-column:1">중간발표 <span style="font-weight:400;color:var(--muted);">(중간고사 기간)</span></div>
+      <div class="bar ms" style="grid-row:5;grid-column:6/7">중간발표</div>
+
+      <div class="gl" style="grid-row:6;grid-column:1">주요 기능 구현</div>
+      <div class="bar b3" style="grid-row:6;grid-column:7/10">기능 단위 개발 &middot; 주 2회 통합</div>
+
+      <div class="gl" style="grid-row:7;grid-column:1">모듈 통합 &middot; 성능 측정</div>
+      <div class="bar b4" style="grid-row:7;grid-column:10/12">성공 기준 지표 측정</div>
+
+      <div class="gl" style="grid-row:8;grid-column:1">사용자 테스트 &middot; 보완</div>
+      <div class="bar b0" style="grid-row:8;grid-column:12/13">피드백 반영 &middot; 발표 준비</div>
+
+      <div class="gl" style="grid-row:9;grid-column:1">최종 발표</div>
+      <div class="bar ms" style="grid-row:9;grid-column:13/14">최종발표</div>
+    </div>
+    <div class="callout">일정 설계 원칙 &mdash; <b>가장 불확실한 요소를 6&ndash;7주차에 먼저 검증</b>합니다. 데이터 확보나 연결 안정성처럼 실패 가능성이 큰 부분을 중간발표 전에 확인해야, 방향 전환이 가능한 시점에 결정을 내릴 수 있습니다.</div>
+  </div>
+</div>
+<script src="slide.js"></script>
+</body>
+</html>

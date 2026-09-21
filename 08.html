@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>오프라인 보드게임 예상 문제</title>
+<link rel="stylesheet" href="slide.css">
+</head>
+<body data-index="8" data-total="24">
+<div class="slide" data-item="1">
+  <div class="rail">
+    <span class="tag">ITEM 01</span>
+    <span class="who">오프라인 모바일 보드게임</span>
+    <span class="sep"></span>
+    <span class="sec">예상 문제 &middot; 요소 기술</span>
+    <span class="no">08 / 24</span>
+  </div>
+  <div class="canvas">
+    <h1 class="title">예상되는 문제와 대응 방안</h1>
+    <div class="card grow" style="padding-top:12px;">
+      <table class="tbl">
+        <thead>
+          <tr><th style="width:110px">구분</th><th style="width:330px">예상 문제</th><th>대응 방안</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="name">기술</td><td>Android 핫스팟 API 제약 &mdash; <b>LocalOnlyHotspot</b>은 SSID/비밀번호를 앱이 지정할 수 없고 기종별 동작이 다름</td><td>핫스팟 모드와 <b>기존 공유기 접속 모드</b>를 모두 지원하는 이중 연결 전략, mDNS 기반 자동 탐색 병행</td></tr>
+          <tr><td class="name">기술</td><td>iOS의 로컬 네트워크 권한과 백그라운드 통신 제약으로 네이티브 참가자 앱이 불안정</td><td>참가자 측을 <b>브라우저 PWA로 고정</b>해 OS 제약 자체를 회피, 호스트만 Android 네이티브</td></tr>
+          <tr><td class="name">기술</td><td>호스트 기기의 <b>배터리 소모와 발열</b> &mdash; 서버 + 렌더링 + 핫스팟 동시 구동</td><td>렌더링 프레임 제한, 유휴 시 폴링 중단, 장시간 플레이 시 충전 안내 표시</td></tr>
+          <tr><td class="name">기술</td><td>기기 파편화 &mdash; 화면 비율과 해상도 차이로 프라이빗 뷰 레이아웃 붕괴</td><td>반응형 레이아웃 + <b>최소 지원 해상도 기준</b> 설정, 3개 이상 실기기 테스트</td></tr>
+          <tr><td class="name">보안</td><td>클라이언트 데이터 조작을 통한 <b>치팅</b>, 같은 핫스팟의 제3자 무단 접속</td><td>모든 판정을 호스트에서만 수행하고 클라는 입력만 전송, <b>세션 코드 기반 입장 인증</b></td></tr>
+          <tr><td class="name">법률</td><td>기존 상용 보드게임 룰을 그대로 옮길 경우 <b>저작권 분쟁</b> 소지</td><td>상용 룰 복제 배제, <b>자체 설계 게임 3종</b>만 구현하고 룰 문서를 직접 작성</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <span class="kicker" style="display:block;margin-bottom:8px;">제안 방식의 요소 기술</span>
+      <div class="tags">
+        <span>임베디드 HTTP/WebSocket 서버</span><span>QR &middot; mDNS 디바이스 디스커버리</span><span>권위 서버 상태 머신</span>
+        <span>이벤트 소싱 &middot; 스냅샷 복구</span><span>룰 DSL 파서 &middot; 인터프리터</span><span>듀얼 뷰 반응형 UI</span><span>PWA 오프라인 캐싱</span>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="slide.js"></script>
+</body>
+</html>

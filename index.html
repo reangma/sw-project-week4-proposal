@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>4주차 제안 발표 · 슬라이드 목록</title>
+<link rel="stylesheet" href="slide.css">
+<style>
+  html,body{height:auto;overflow:auto;}
+  body{background:#F3F1EC;display:block;color:var(--ink);}
+  .wrap{max-width:1120px;margin:0 auto;padding:46px 32px 64px;}
+  .top{display:flex;align-items:flex-end;gap:16px;border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:26px;}
+  .top h1{margin:0;font-size:27px;font-weight:800;letter-spacing:-0.03em;}
+  .top p{margin:0 0 3px;font-size:13.5px;color:var(--muted);}
+  .top .cnt{margin-left:auto;font-family:var(--mono);font-size:12px;color:var(--muted);}
+  .grp{margin-bottom:26px;}
+  .grp > .kicker{display:block;margin-bottom:10px;}
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+  a.s{display:flex;flex-direction:column;gap:5px;padding:13px 15px;background:#fff;border:1px solid var(--line);border-left:3px solid var(--c,#C8C2B6);border-radius:5px;text-decoration:none;color:inherit;transition:border-color .12s,transform .12s;}
+  a.s:hover{transform:translateY(-1px);border-color:var(--c,#A9A296);border-left-color:var(--c,#A9A296);}
+  a.s .n{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--c,#7C7669);}
+  a.s .t{font-size:13.5px;font-weight:700;letter-spacing:-0.02em;line-height:1.35;}
+  a.s .d{font-size:11.5px;color:var(--muted);line-height:1.4;}
+  .how{margin-top:34px;padding:18px 22px;background:#fff;border:1px solid var(--line);border-radius:6px;}
+  .how h2{margin:0 0 10px;font-size:15px;font-weight:700;letter-spacing:-0.02em;}
+  .how ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:7px;}
+  .how li{position:relative;padding-left:13px;font-size:13px;color:var(--ink2);line-height:1.5;}
+  .how li::before{content:"";position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:var(--line);}
+  kbd{font-family:var(--mono);font-size:11.5px;background:var(--ground);border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:1px 6px;color:var(--ink);}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div>
+      <h1>소프트웨어 프로젝트 &mdash; 4주차 제안 발표</h1>
+      <p>3가지 프로젝트 아이템 제안 &middot; 2026. 09. 28</p>
+    </div>
+    <span class="cnt">24 slides</span>
+  </div>
+
+  <div class="grp">
+    <span class="kicker">도입</span>
+    <div class="grid">
+      <a class="s" href="01.html"><span class="n">01</span><span class="t">표지</span><span class="d">3가지 프로젝트 아이템 제안</span></a>
+      <a class="s" href="02.html"><span class="n">02</span><span class="t">개요</span><span class="d">세 아이템의 공통 선정 기준</span></a>
+    </div>
+  </div>
+
+  <div class="grp" style="--c:#B4332C">
+    <span class="kicker" style="color:#B4332C">Item 01 &mdash; 오프라인 보드게임</span>
+    <div class="grid">
+      <a class="s" href="03.html"><span class="n">03</span><span class="t">문제정의</span><span class="d">모였는데, 인터넷이 없다</span></a>
+      <a class="s" href="04.html"><span class="n">04</span><span class="t">기존 사례 비교</span><span class="d">유사 서비스는 전부 인터넷 전제</span></a>
+      <a class="s" href="05.html"><span class="n">05</span><span class="t">해결 시나리오</span><span class="d">호스트 기기가 곧 서버다</span></a>
+      <a class="s" href="06.html"><span class="n">06</span><span class="t">모듈 구성도</span><span class="d">호스트 &middot; 연결 계층 &middot; 참가자</span></a>
+      <a class="s" href="07.html"><span class="n">07</span><span class="t">기대 효과</span><span class="d">최종 모습 &middot; 성공 기준 &middot; 대상</span></a>
+      <a class="s" href="08.html"><span class="n">08</span><span class="t">예상 문제</span><span class="d">대응 방안 &middot; 요소 기술</span></a>
+    </div>
+  </div>
+
+  <div class="grp" style="--c:#2F5D50">
+    <span class="kicker" style="color:#2F5D50">Item 02 &mdash; 창작 설정 검증 어시스턴트</span>
+    <div class="grid">
+      <a class="s" href="09.html"><span class="n">09</span><span class="t">문제정의</span><span class="d">10만 자를 전부 기억하는 작가는 없다</span></a>
+      <a class="s" href="10.html"><span class="n">10</span><span class="t">기존 사례 비교</span><span class="d">기존 도구는 저장만 하고 검증하지 않는다</span></a>
+      <a class="s" href="11.html"><span class="n">11</span><span class="t">해결 시나리오</span><span class="d">글을 쓰면 설정집이 따라 자란다</span></a>
+      <a class="s" href="12.html"><span class="n">12</span><span class="t">모듈 구성도</span><span class="d">추출 &middot; 저장 &middot; 분석 &middot; 출력</span></a>
+      <a class="s" href="13.html"><span class="n">13</span><span class="t">기대 효과</span><span class="d">최종 모습 &middot; 성공 기준 &middot; 대상</span></a>
+      <a class="s" href="14.html"><span class="n">14</span><span class="t">예상 문제</span><span class="d">대응 방안 &middot; 요소 기술</span></a>
+    </div>
+  </div>
+
+  <div class="grp" style="--c:#1B4A8A">
+    <span class="kicker" style="color:#1B4A8A">Item 03 &mdash; 엘리베이터 오토패스</span>
+    <div class="grid">
+      <a class="s" href="15.html"><span class="n">15</span><span class="t">문제정의</span><span class="d">만원 엘리베이터가 층마다 문만 연다</span></a>
+      <a class="s" href="16.html"><span class="n">16</span><span class="t">기존 사례 비교</span><span class="d">이미 있는 기능, 단 무게로만 판단한다</span></a>
+      <a class="s" href="17.html"><span class="n">17</span><span class="t">해결 시나리오</span><span class="d">무게 대신 눈으로 본다</span></a>
+      <a class="s" href="18.html"><span class="n">18</span><span class="t">모듈 구성도</span><span class="d">엣지 처리 &middot; 개인정보 경계</span></a>
+      <a class="s" href="19.html"><span class="n">19</span><span class="t">기대 효과</span><span class="d">최종 모습 &middot; 성공 기준 &middot; 대상</span></a>
+      <a class="s" href="20.html"><span class="n">20</span><span class="t">예상 문제</span><span class="d">대응 방안 &middot; 요소 기술</span></a>
+    </div>
+  </div>
+
+  <div class="grp">
+    <span class="kicker">종합</span>
+    <div class="grid">
+      <a class="s" href="21.html"><span class="n">21</span><span class="t">세 아이템 비교</span><span class="d">선정 판단을 위한 정리</span></a>
+      <a class="s" href="22.html"><span class="n">22</span><span class="t">향후 일정</span><span class="d">4주차부터 15주차 최종 발표까지</span></a>
+      <a class="s" href="23.html"><span class="n">23</span><span class="t">업무 분배</span><span class="d">2인 팀 &middot; 리스크 기준 배분</span></a>
+      <a class="s" href="24.html"><span class="n">24</span><span class="t">마무리</span><span class="d">요약 &middot; 논의 요청 사항</span></a>
+    </div>
+  </div>
+
+  <div class="how">
+    <h2>스크린샷 &middot; 발표 사용법</h2>
+    <ul>
+      <li>슬라이드를 열고 <kbd>F</kbd> 를 누르면 전체화면이 됩니다. 주소창까지 사라지므로 이 상태에서 캡처하면 깔끔합니다.</li>
+      <li>캡처는 <kbd>Win</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd> &mdash; 흰 슬라이드의 경계가 어두운 배경과 대비되어 영역을 잡기 쉽습니다. 전체화면에서는 <kbd>PrtSc</kbd> 로 전체를 찍어도 됩니다.</li>
+      <li>슬라이드 이동은 <kbd>&rarr;</kbd> <kbd>&larr;</kbd> (또는 <kbd>Space</kbd> / <kbd>PageDown</kbd>), 처음은 <kbd>Home</kbd>, 끝은 <kbd>End</kbd>, 이 목록으로는 <kbd>I</kbd> 입니다.</li>
+      <li>슬라이드는 1280 &times; 720 (16:9)으로 고정되어 있어 PPT에 그대로 붙이면 크기가 맞습니다.</li>
+      <li>PDF가 필요하면 슬라이드에서 <kbd>Ctrl</kbd> + <kbd>P</kbd> &rarr; 여백 없음 &middot; 배경 그래픽 켜기로 저장하면 한 장씩 출력됩니다.</li>
+      <li>발표 전 <b>23번 슬라이드의 &ldquo;팀원 A / 팀원 B&rdquo;를 실제 이름으로</b> 바꿔 주세요.</li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>

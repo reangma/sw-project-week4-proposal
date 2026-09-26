@@ -55,6 +55,8 @@ body{background:#26262A;display:grid;place-items:center;overflow:hidden;font-fam
 .c2b{grid-template-columns:1fr 1.3fr;}
 .grow{flex:1;min-height:0;}
 .stack{display:flex;flex-direction:column;gap:12px;min-height:0;}
+.stack>.card.fill{flex:1;}
+.stack>.card.fill>ul.list{flex:1;justify-content:space-evenly;}
 
 /* ---- card ---- */
 .card{border:1px solid var(--line);border-radius:6px;padding:15px 17px;display:flex;flex-direction:column;gap:9px;background:var(--surface);min-height:0;}
@@ -72,9 +74,9 @@ ul.list>li b{color:var(--ink);font-weight:700;}
 ul.list.tight>li{font-size:13.5px;}
 
 /* ---- steps ---- */
-ol.steps{counter-reset:s;margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:9px;}
-ol.steps>li{counter-increment:s;display:grid;grid-template-columns:24px 1fr;gap:10px;font-size:14px;color:var(--ink2);}
-ol.steps>li::before{content:counter(s,decimal-leading-zero);font-family:var(--mono);font-size:11px;font-weight:600;color:var(--accent);padding-top:3px;}
+ol.steps{counter-reset:s;margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:9px;flex:1;justify-content:space-evenly;}
+ol.steps>li{counter-increment:s;position:relative;padding-left:32px;font-size:14px;line-height:1.55;color:var(--ink2);}
+ol.steps>li::before{content:counter(s,decimal-leading-zero);position:absolute;left:0;top:0;width:22px;text-align:right;font-family:var(--mono);font-size:11px;font-weight:600;line-height:1.95;color:var(--accent);font-variant-numeric:tabular-nums;}
 ol.steps>li b{color:var(--ink);font-weight:700;}
 
 /* ---- table ---- */
@@ -115,3 +117,13 @@ table.tbl td.c{text-align:center;}
   body{background:#fff;display:block;overflow:visible;}
   .slide{transform:none;}
 }
+
+.shots{display:grid;gap:9px;margin-top:auto;padding-top:10px;}
+.shots.n4{grid-template-columns:repeat(4,1fr);}
+.shots.n5{grid-template-columns:repeat(5,1fr);}
+.sh{display:flex;flex-direction:column;gap:5px;min-width:0;}
+.sh .im{border-radius:4px;overflow:hidden;border:1px solid var(--line);background:var(--ground);display:flex;align-items:center;justify-content:center;}
+.sh .im.ph{border:1px dashed var(--edge);background:var(--soft);}
+.sh .im.ph::after{content:"SCREENSHOT";font-family:var(--mono);font-size:9px;letter-spacing:0.08em;color:var(--edge);}
+.sh .im img{width:100%;height:100%;object-fit:cover;display:block;}
+.sh b{font-size:11px;font-weight:600;color:var(--muted);text-align:center;letter-spacing:-0.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}

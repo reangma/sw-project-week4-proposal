@@ -4,6 +4,11 @@
 <meta charset="utf-8">
 <title>오프라인 보드게임 기존 사례 비교</title>
 <link rel="stylesheet" href="slide.css">
+<style>
+  .cmp th,.cmp td{font-size:12px;padding:8px 6px;}
+  .cmp td.name{font-size:12.5px;}
+  .cmp thead th{font-size:11px;}
+</style>
 </head>
 <body data-index="4" data-total="24">
 <div class="slide" data-item="1">
@@ -15,35 +20,35 @@
     <span class="no">04 / 24</span>
   </div>
   <div class="canvas">
-    <h1 class="title">비슷한 서비스는 있지만, <em>전부 인터넷을 전제한다</em></h1>
+    <h1 class="title">구성물을 없앤 서비스는 있지만, <em>마주 앉은 판을 못 만든다</em></h1>
     <div class="row c2a grow">
       <div class="card" style="padding-top:12px;">
-        <table class="tbl">
+        <table class="tbl cmp">
           <thead>
-            <tr><th>기존 사례</th><th>인터넷</th><th>참가자 설치</th><th>개인 화면</th><th>대면 상호작용</th></tr>
+            <tr><th>기존 사례</th><th>물리 구성물</th><th>개인 화면</th><th>대면 유지</th><th>앱 설치</th><th>통신 환경</th></tr>
           </thead>
           <tbody>
-            <tr><td class="name">Jackbox Party Pack</td><td>필요</td><td class="ok">불필요</td><td>제한적</td><td class="ok">유지</td></tr>
-            <tr><td class="name">AirConsole</td><td>필요</td><td class="ok">불필요</td><td class="ok">있음</td><td class="ok">유지</td></tr>
-            <tr><td class="name">Board Game Arena</td><td>필요</td><td class="ok">불필요</td><td class="ok">있음</td><td class="nk">없음</td></tr>
-            <tr><td class="name">물리 보드게임</td><td class="ok">불필요</td><td>&mdash;</td><td class="ok">있음</td><td class="ok">유지</td></tr>
-            <tr><td class="name">Spaceteam</td><td class="ok">불필요</td><td class="nk">필요</td><td class="nk">없음</td><td class="ok">유지</td></tr>
-            <tr class="us"><td class="name">제안 서비스</td><td class="ok">불필요</td><td class="ok">불필요</td><td class="ok">있음</td><td class="ok">유지</td></tr>
+            <tr><td class="name">물리 보드게임</td><td class="c nk">필요</td><td class="c ok">있음</td><td class="c ok">유지</td><td class="c">&mdash;</td><td class="c ok">무관</td></tr>
+            <tr><td class="name">Jackbox Party Pack</td><td class="c ok">불필요</td><td class="c nk">제한적</td><td class="c ok">유지</td><td class="c ok">불필요</td><td class="c nk">의존</td></tr>
+            <tr><td class="name">AirConsole</td><td class="c ok">불필요</td><td class="c ok">있음</td><td class="c ok">유지</td><td class="c ok">불필요</td><td class="c nk">의존</td></tr>
+            <tr><td class="name">Board Game Arena</td><td class="c ok">불필요</td><td class="c ok">있음</td><td class="c nk">없음</td><td class="c ok">불필요</td><td class="c nk">의존</td></tr>
+            <tr><td class="name">Spaceteam</td><td class="c ok">불필요</td><td class="c nk">없음</td><td class="c ok">유지</td><td class="c nk">필요</td><td class="c ok">무관</td></tr>
+            <tr class="us"><td class="name">제안 서비스</td><td class="c ok">불필요</td><td class="c ok">있음</td><td class="c ok">유지</td><td class="c ok">불필요</td><td class="c ok">무관</td></tr>
           </tbody>
         </table>
-        <p style="margin:2px 0 0;font-size:12.5px;color:var(--muted);">Jackbox&middot;AirConsole은 접속 방식이 가장 유사하나 <b>인터넷과 별도 TV/PC 화면</b>이 필수입니다.</p>
+        <p style="margin:2px 0 0;font-size:12.5px;color:var(--muted);">Jackbox&middot;AirConsole은 접속 방식이 가장 유사하나, <b>모두가 함께 볼 공용 화면을 TV나 PC로 따로 마련해야</b> 합니다. 테이블 위 기기 한 대로는 성립하지 않습니다.</p>
       </div>
       <div class="card mark">
         <h3><span class="dot"></span>왜 어려운 문제인가</h3>
         <ul class="list tight">
-          <li><b>화면 겸용 문제</b> &mdash; 호스트 기기 하나가 모두가 보는 퍼블릭 화면과 자기만 보는 프라이빗 화면을 겸해야 함. 훔쳐보기를 막는 전환 UX가 핵심 설계 난제</li>
+          <li><b>화면 겸용 문제</b> &mdash; 호스트 기기 하나가 모두가 보는 공용 판과 자기만 보는 손패를 겸해야 함. 카드를 쥐고 가리는 동작을 훔쳐보기 없이 화면으로 옮기는 것이 핵심 설계 난제</li>
           <li><b>단일 실패 지점</b> &mdash; 호스트가 곧 권위 서버라 이탈하면 게임 전체가 붕괴. 상태 스냅샷과 재접속 복구가 필수</li>
-          <li><b>플랫폼 제약</b> &mdash; iOS는 Wi-Fi Direct를 지원하지 않아, 일반적인 P2P 방식으로는 크로스플랫폼이 불가능</li>
-          <li><b>치팅 방지</b> &mdash; 프라이빗 정보를 클라이언트에 어디까지 내려보낼지가 곧 부정행위 설계 문제</li>
+          <li><b>치팅 방지</b> &mdash; 물리 카드는 손으로 가리면 끝이지만, 화면에서는 프라이빗 정보를 클라이언트에 어디까지 내려보낼지가 곧 부정행위 설계 문제</li>
+          <li><b>플랫폼 제약</b> &mdash; iOS는 Wi-Fi Direct를 지원하지 않아, 일반적인 P2P 방식으로는 크로스플랫폼 연결이 불가능</li>
         </ul>
       </div>
     </div>
-    <div class="callout">해결할 가치 &mdash; 인터넷 의존을 걷어내면 <b>기내&middot;지하&middot;산간&middot;재난 상황 등 통신이 끊긴 모든 환경</b>으로 활용처가 확장됩니다.</div>
+    <div class="callout">해결할 가치 &mdash; <b>사지 않아도, 들고 다니지 않아도 되는 보드게임</b>이 되면 모임이 정해진 뒤에 게임을 고를 수 있습니다. 외부 통신을 쓰지 않는 구조라 장소도 가리지 않습니다.</div>
   </div>
 </div>
 <script src="slide.js"></script>

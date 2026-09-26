@@ -4,6 +4,12 @@
 <meta charset="utf-8">
 <title>엘리베이터 오토패스 해결 시나리오</title>
 <link rel="stylesheet" href="slide.css">
+<style>
+  ol.steps>li{font-size:16.5px;line-height:1.6;padding-left:34px;}
+  ol.steps>li::before{font-size:12px;line-height:1.75;width:24px;}
+  ul.list.tight>li{font-size:15.5px;line-height:1.6;padding-left:16px;}
+  ul.list.tight>li::before{top:11px;width:6px;height:6px;}
+</style>
 </head>
 <body data-index="15" data-total="20">
 <div class="slide" data-item="3">
@@ -39,14 +45,6 @@
             <li>개인정보 &rarr; <b>온디바이스 처리</b>, 원본 미저장&middot;미전송</li>
             <li>실제 제어 불가 &rarr; <b>권고 출력 + 시뮬레이터</b>로 효과 검증</li>
           </ul>
-        </div>
-        <div class="card">
-          <h3><span class="dot"></span>사용 기술 &middot; 개발 환경</h3>
-          <div class="tags">
-            <span>YOLOv11 head detection</span><span>CrowdHuman 전이학습</span><span>P2PNet 밀도 추정</span>
-            <span>ByteTrack</span><span>OpenCV 캘리브레이션</span><span>PyTorch &rarr; ONNX &rarr; TensorRT</span>
-            <span>Jetson Orin Nano</span><span>MQTT</span><span>SimPy 이산사건 시뮬레이터</span>
-          </div>
         </div>
       </div>
     </div>

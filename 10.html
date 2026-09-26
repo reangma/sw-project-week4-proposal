@@ -4,6 +4,12 @@
 <meta charset="utf-8">
 <title>창작 어시스턴트 해결 시나리오</title>
 <link rel="stylesheet" href="slide.css">
+<style>
+  ol.steps>li{font-size:16.5px;line-height:1.6;padding-left:34px;}
+  ol.steps>li::before{font-size:12px;line-height:1.75;width:24px;}
+  ul.list.tight>li{font-size:15.5px;line-height:1.6;padding-left:16px;}
+  ul.list.tight>li::before{top:11px;width:6px;height:6px;}
+</style>
 </head>
 <body data-index="10" data-total="20">
 <div class="slide" data-item="2">
@@ -39,13 +45,6 @@
             <li>의도된 반전 &rarr; <b>권고 수준 경고</b>와 예외 등록 학습</li>
             <li>비용&middot;지연 &rarr; <b>증분 처리 + 결과 캐싱</b>, 판정 단계만 큰 모델</li>
           </ul>
-        </div>
-        <div class="card">
-          <h3><span class="dot"></span>사용 기술 &middot; 개발 환경</h3>
-          <div class="tags">
-            <span>Claude API (claude-sonnet-5)</span><span>구조화 출력 JSON Schema</span><span>로컬 LLM (Ollama)</span>
-            <span>Chroma 벡터 DB</span><span>Neo4j 지식그래프</span><span>FastAPI</span><span>Electron 플로팅 윈도우</span><span>Python 3.12</span><span>Docker Compose</span>
-          </div>
         </div>
       </div>
     </div>

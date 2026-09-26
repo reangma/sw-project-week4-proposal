@@ -2,51 +2,43 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<title>창작 어시스턴트 기대 효과</title>
+<title>엘리베이터 오토패스 문제정의</title>
 <link rel="stylesheet" href="slide.css">
 </head>
-<body data-index="13" data-total="24">
-<div class="slide" data-item="2">
+<body data-index="13" data-total="20">
+<div class="slide" data-item="3">
   <div class="rail">
-    <span class="tag">ITEM 02</span>
-    <span class="who">창작 설정 검증 어시스턴트</span>
+    <span class="tag">ITEM 03</span>
+    <span class="who">영상 기반 엘리베이터 오토패스</span>
     <span class="sep"></span>
-    <span class="sec">기대 효과 &middot; 성공 기준 &middot; 대상</span>
-    <span class="no">13 / 24</span>
+    <span class="sec">문제정의</span>
+    <span class="no">13 / 20</span>
   </div>
   <div class="canvas">
-    <h1 class="title">스스로 자라는 설정 위키 + <em>설정 맞춤법 검사기</em></h1>
+    <h1 class="title">만원 엘리베이터가 <em>층마다 문만 열고 닫는다</em></h1>
+    <p class="lede">아무도 타지 못하는 정차가 반복되면, 그 손실은 그 층 사람뿐 아니라 이미 탄 사람 전부에게 누적됩니다.</p>
     <div class="row c2 grow">
       <div class="card">
-        <h3><span class="dot"></span>최종 완성 모습</h3>
+        <h3><span class="dot"></span>해결하고자 하는 문제</h3>
         <ul class="list">
-          <li>웹 에디터에서 글을 쓰면 우측 패널의 <b>설정 위키가 자동으로 채워지고 갱신</b>됨</li>
-          <li>기존 설정과 어긋나는 문장에는 <b>맞춤법 검사기처럼 밑줄</b>이 그어지고, 클릭하면 근거가 된 원문 위치로 이동</li>
-          <li>캐릭터를 선택하면 <b>생사 &middot; 위치 &middot; 소지품 &middot; 관계 &middot; 감정</b>의 변화가 시간축에 펼쳐지는 타임라인 뷰</li>
-          <li>장면이 끝날 때마다 <b>자동 생성되는 챕터 요약</b>으로 이전 내용을 다시 읽지 않아도 됨</li>
-          <li>&ldquo;이건 의도한 설정&rdquo; 버튼으로 <b>예외를 등록</b>하면 같은 경고가 반복되지 않음</li>
+          <li>등교&middot;출근 피크에 <b>이미 가득 찬 엘리베이터가 호출된 층마다 정차</b>해, 아무도 타지 못한 채 문만 여닫는 헛정차가 반복됨</li>
+          <li>정차 1회당 도어 개폐와 가감속으로 <b>약 8&ndash;15초</b>가 소모되고, 고층 건물에서는 이 손실이 왕복마다 누적</li>
+          <li>기다리는 사람은 <b>몇 번째 차가 와야 탈 수 있는지 알 수 없어</b> 체감 대기시간이 실제보다 더 길게 느껴짐</li>
+          <li>층별로 <b>몇 명이 기다리는지에 대한 정보가 없어</b>, 배차가 실제 수요와 무관하게 이뤄짐</li>
+          <li>결과적으로 이미 탑승한 사람과 대기자 모두가 손해를 보는 <b>전형적인 자원 배분 실패</b></li>
         </ul>
       </div>
       <div class="card fill">
-        <h3><span class="dot"></span>주 사용 대상과 사용 시나리오</h3>
+        <h3><span class="dot"></span>이 문제를 선정한 이유</h3>
         <ul class="list">
-          <li><b>웹소설 연재 작가</b> &mdash; 매일 마감에 쫓기며 수백 회차의 설정을 혼자 관리하는 층</li>
-          <li><b>게임 시나리오 &middot; 기획자</b> &mdash; 여러 명이 동시에 문서를 고쳐 충돌이 잦은 팀</li>
-          <li><b>TRPG 게임 마스터</b> &mdash; 세션마다 즉흥으로 만든 설정을 축적해야 하는 경우</li>
-          <li><b>웹툰 스토리 작가</b> &mdash; 그림 작업과 분리되어 설정 확인이 늦어지는 구조</li>
+          <li>교내 건물에서 <b>매일 반복적으로 관측</b>되는 문제라 데이터와 개선 효과를 직접 확인할 수 있음</li>
+          <li>기존 해법(하중 센서)의 <b>한계가 명확해</b> 비교 대상이 분명하고 개선 여지가 큼</li>
+          <li><b>평균 대기시간 &middot; 헛정차 횟수</b>라는 명확한 정량 지표로 성과를 측정할 수 있음</li>
+          <li>컴퓨터 비전 &middot; 엣지 추론 &middot; 시뮬레이션을 <b>하나의 시스템으로 통합</b>하는 학습 가치가 큼</li>
         </ul>
-        <p style="margin-top:2px;font-size:13px;color:var(--muted);line-height:1.55;">예시 &mdash; 120화를 쓰던 중 조연의 이름을 적자 밑줄이 그어진다. 클릭하니 &ldquo;47화에서 사망&rdquo;이라는 원문이 그대로 뜬다. 연재 전에 수정한다.</p>
       </div>
     </div>
-    <div>
-      <span class="kicker" style="display:block;margin-bottom:8px;">성공 판단 기준</span>
-      <div class="metrics">
-        <div class="metric"><span class="v">80%</span><span class="k">모순 주입 테스트셋<br>탐지율 (Recall)</span></div>
-        <div class="metric"><span class="v">20%</span><span class="k">오탐율 상한<br>(False Positive)</span></div>
-        <div class="metric"><span class="v">5분</span><span class="k">10만 자 원고<br>최초 인덱싱 시간</span></div>
-        <div class="metric"><span class="v">100%</span><span class="k">경고 1건당<br>원문 근거 인용률</span></div>
-      </div>
-    </div>
+    <div class="callout">범위 &mdash; 카 내부의 <b>실제 포화도</b>와 각 층의 <b>대기 인원</b>을 함께 파악해, 바이패스 판단과 배차 우선순위까지 다룹니다.</div>
   </div>
 </div>
 <script src="slide.js"></script>

@@ -2,43 +2,112 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<title>엘리베이터 오토패스 기존 사례 비교</title>
+<title>엘리베이터 오토패스 모듈 구성도</title>
 <link rel="stylesheet" href="slide.css">
 </head>
-<body data-index="16" data-total="24">
+<body data-index="16" data-total="20">
 <div class="slide" data-item="3">
   <div class="rail">
     <span class="tag">ITEM 03</span>
     <span class="who">영상 기반 엘리베이터 오토패스</span>
     <span class="sep"></span>
-    <span class="sec">기존 사례 비교 &middot; 난이도</span>
-    <span class="no">16 / 24</span>
+    <span class="sec">모듈 구성도</span>
+    <span class="no">16 / 20</span>
   </div>
   <div class="canvas">
-    <h1 class="title">이미 있는 기능이다. 단, <em>무게로만 판단한다</em></h1>
-    <div class="callout">상용 엘리베이터에는 이미 <b>만원 통과(Full Load Bypass)</b> 기능이 탑재되어 있습니다. 문제는 그 판단 근거가 <b>하중 센서</b>라는 점입니다.</div>
-    <div class="row c2a grow">
-      <div class="card" style="padding-top:12px;">
-        <table class="tbl">
-          <thead>
-            <tr><th style="width:130px">방식</th><th style="width:150px">판단 근거</th><th>한계</th></tr>
-          </thead>
-          <tbody>
-            <tr><td class="name">버튼 입력만</td><td>호출 여부</td><td>혼잡도 정보가 아예 없어, 만원이어도 모든 호출 층에 정차</td></tr>
-            <tr><td class="name">하중 센서<br><span style="font-weight:400;color:var(--muted);font-size:12px;">(현 상용 방식)</span></td><td>탑승 총 무게<br>정격 하중 대비 %</td><td><b>무게와 점유 면적이 다름</b> &mdash; 성인 5명과 학생 10명의 무게는 비슷해도 남는 공간은 전혀 다름 &middot; 캐리어&middot;유모차&middot;자전거 등 부피가 큰 짐은 반영되지 않음 &middot; 센서 노후화에 따른 값 흔들림 &middot; 층별 대기 인원은 알 수 없음</td></tr>
-            <tr class="us"><td class="name">제안 방식<br><span style="font-weight:400;font-size:12px;">(영상 기반)</span></td><td>실제 점유 면적<br>인원수 + 층별 대기 인원</td><td>추가 탑승 가능 여부를 <b>직접 판단</b>하고, 대기 수요까지 반영해 배차 우선순위를 조정</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="card mark">
-        <h3><span class="dot"></span>왜 어려운 문제인가</h3>
-        <ul class="list tight">
-          <li><b>최악의 검출 환경</b> &mdash; 카 내부는 극도의 밀집과 상호 가림, 어안 광각 왜곡, 조명 변화가 겹쳐 일반 객체 검출 성능이 크게 떨어짐</li>
-          <li><b>데이터 희소</b> &mdash; 천장 탑뷰 시점의 공개 데이터셋이 거의 없음 (대부분 정면 시점 기준)</li>
-          <li><b>엣지 실시간</b> &mdash; 엘리베이터에 GPU를 넣을 수 없어 저전력 장비에서 실시간 추론이 필요</li>
-          <li><b>오판 비용의 비대칭</b> &mdash; 자리가 있는데 지나치면 즉시 민원으로 이어져, 보수적 임계값 설계가 필수</li>
-        </ul>
-      </div>
+    <h1 class="title">모듈 구성과 상호 관계</h1>
+    <div class="diagram">
+      <svg viewBox="0 0 960 330" role="img" aria-label="CCTV 입력에서 바이패스 판단까지의 엣지 처리 구조도">
+        <defs>
+          <marker id="ar3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#1B4A8A"/>
+          </marker>
+          <marker id="ar3d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#9AA7B8"/>
+          </marker>
+        </defs>
+        <style>
+          .bx{fill:#FFFFFF;stroke:#DCD7CC;stroke-width:1.2}
+          .ac{fill:#EEF2F8;stroke:#C7D4E5;stroke-width:1.2}
+          .zone{fill:#F8FAFC;stroke:#1B4A8A;stroke-width:1.3;stroke-dasharray:6 4}
+          .t{font-family:Pretendard,"Malgun Gothic",sans-serif;font-size:12.5px;font-weight:600;fill:#16181D;text-anchor:middle}
+          .s{font-family:Pretendard,"Malgun Gothic",sans-serif;font-size:10.5px;fill:#7C7669;text-anchor:middle}
+          .zt{font-family:Pretendard,"Malgun Gothic",sans-serif;font-size:11.5px;font-weight:700;fill:#1B4A8A}
+          .ln{stroke:#1B4A8A;stroke-width:1.4;fill:none;marker-end:url(#ar3)}
+          .lnd{stroke:#9AA7B8;stroke-width:1.2;fill:none;stroke-dasharray:4 3;marker-end:url(#ar3d)}
+        </style>
+
+        <rect class="bx" x="6" y="60" width="150" height="58" rx="5"/>
+        <text class="t" x="81" y="84">카 내부 CCTV</text>
+        <text class="s" x="81" y="101">천장 광각 1대</text>
+
+        <rect class="bx" x="6" y="160" width="150" height="58" rx="5"/>
+        <text class="t" x="81" y="184">승강장 CCTV</text>
+        <text class="s" x="81" y="201">층별 대기 구역</text>
+
+        <rect class="zone" x="190" y="14" width="230" height="310" rx="7"/>
+        <text class="zt" x="204" y="36">엣지 디바이스 &mdash; 영상 반출 없음</text>
+
+        <rect class="bx" x="206" y="52" width="198" height="52" rx="5"/>
+        <text class="t" x="305" y="74">전처리 &middot; 왜곡 보정</text>
+        <text class="s" x="305" y="91">어안 렌즈 &middot; 조명 정규화</text>
+
+        <rect class="ac" x="206" y="120" width="198" height="52" rx="5"/>
+        <text class="t" x="305" y="142">머리 검출 &middot; 밀도 추정</text>
+        <text class="s" x="305" y="159">YOLO + P2PNet 앙상블</text>
+
+        <rect class="bx" x="206" y="188" width="198" height="52" rx="5"/>
+        <text class="t" x="305" y="210">추적 &middot; 승하차 카운팅</text>
+        <text class="s" x="305" y="227">ByteTrack 라인 통과</text>
+
+        <rect class="ac" x="206" y="256" width="198" height="48" rx="5"/>
+        <text class="t" x="305" y="276">포화도 산출</text>
+        <text class="s" x="305" y="293">점유 면적 기반 0 &ndash; 1</text>
+
+        <rect class="bx" x="455" y="30" width="200" height="62" rx="5"/>
+        <text class="t" x="555" y="53">엘리베이터 상태</text>
+        <text class="s" x="555" y="70">호출 버튼 &middot; 현재 층 &middot; 방향</text>
+
+        <rect class="ac" x="455" y="128" width="200" height="82" rx="5"/>
+        <text class="t" x="555" y="158">바이패스 의사결정 엔진</text>
+        <text class="s" x="555" y="176">포화도 + 대기 인원 + 운행 상태</text>
+        <text class="s" x="555" y="192">보수적 임계값 &middot; 권고 산출</text>
+
+        <rect class="bx" x="700" y="40" width="200" height="56" rx="5"/>
+        <text class="t" x="800" y="63">바이패스 권고 신호</text>
+        <text class="s" x="800" y="80">해당 층 통과 권고</text>
+
+        <rect class="bx" x="700" y="112" width="200" height="56" rx="5"/>
+        <text class="t" x="800" y="135">관제 대시보드</text>
+        <text class="s" x="800" y="152">층별 혼잡 히트맵</text>
+
+        <rect class="bx" x="700" y="184" width="200" height="56" rx="5"/>
+        <text class="t" x="800" y="207">운행 로그 &middot; 통계</text>
+        <text class="s" x="800" y="224">헛정차 &middot; 대기시간 집계</text>
+
+        <rect class="bx" x="455" y="248" width="445" height="60" rx="5"/>
+        <text class="t" x="677" y="272">이산사건 엘리베이터 시뮬레이터</text>
+        <text class="s" x="677" y="290">바이패스 정책 적용 &middot; 평균 대기시간 &middot; 헛정차 감소율 검증 루프</text>
+
+        <path class="ln" d="M158,86 L202,78"/>
+        <path class="ln" d="M158,186 L202,148"/>
+        <path class="ln" d="M305,106 L305,117"/>
+        <path class="ln" d="M305,174 L305,185"/>
+        <path class="ln" d="M305,242 L305,253"/>
+        <path class="ln" d="M406,280 C434,280 432,180 451,172"/>
+        <path class="ln" d="M555,94 L555,125"/>
+        <path class="ln" d="M657,155 L696,70"/>
+        <path class="ln" d="M657,166 L696,140"/>
+        <path class="ln" d="M657,178 L696,210"/>
+        <path class="ln" d="M530,212 L530,245"/>
+        <path class="lnd" d="M590,245 L590,212"/>
+      </svg>
+    </div>
+    <div class="legend">
+      <i><span class="sw" style="background:#EEF2F8;border:1px solid #C7D4E5"></span>핵심 모듈 (난이도 상)</i>
+      <i><span class="sw" style="background:#fff;border:1px solid #DCD7CC"></span>일반 모듈</i>
+      <i><svg width="26" height="8"><line x1="0" y1="4" x2="26" y2="4" stroke="#1B4A8A" stroke-width="1.3" stroke-dasharray="6 4"/></svg>개인정보 경계 &mdash; 이 안에서만 영상 처리</i>
+      <i><svg width="26" height="8"><line x1="0" y1="4" x2="26" y2="4" stroke="#9AA7B8" stroke-width="1.2" stroke-dasharray="4 3"/></svg>정책 피드백</i>
     </div>
   </div>
 </div>

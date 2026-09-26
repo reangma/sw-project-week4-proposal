@@ -2,50 +2,87 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<title>엘리베이터 오토패스 기대 효과</title>
+<title>향후 일정 타임라인</title>
 <link rel="stylesheet" href="slide.css">
+<style>
+  .gantt{flex:1;min-height:0;align-content:space-between;display:grid;grid-template-columns:186px repeat(14,1fr);column-gap:4px;row-gap:8px;align-items:center;}
+  .gh{display:flex;flex-direction:column;align-items:center;gap:1px;padding-bottom:7px;border-bottom:1px solid var(--line);}
+  .gh b{font-family:var(--mono);font-size:10.5px;font-weight:600;color:var(--ink);}
+  .gh span{font-family:var(--mono);font-size:9.5px;color:var(--muted);}
+  .gh.mid{background:#FAF6EE;border-bottom:1px solid #D9C9A8;border-radius:4px 4px 0 0;}
+  .gh.mid b{color:#8A6D2F;}
+  .gl{font-size:12.5px;color:var(--ink2);text-align:right;padding-right:11px;font-weight:600;}
+  .gl.off{color:#8A6D2F;}
+  .bar{height:25px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;letter-spacing:-0.02em;padding:0 2px;text-align:center;}
+  .b1{background:#B4332C;} .b2{background:#8E8375;} .b3{background:#2F5D50;} .b4{background:#1B4A8A;}
+  .b0{background:#fff;border:1.5px dashed #C2BCB1;color:var(--muted);}
+  .ms{background:#8A6D2F;box-shadow:0 0 0 3px #F7EEDC;height:37px;flex-direction:column;gap:0;line-height:1.2;font-size:10.5px;}
+  .ms span{font-size:8.5px;font-weight:600;opacity:.82;letter-spacing:-0.03em;}
+  .ms.done{background:#B8AE9C;box-shadow:0 0 0 3px #F2EFE8;}
+  .ms.now{background:#B4332C;box-shadow:0 0 0 3px #F7E7E5;}
+  .rules{margin-top:4px;display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:6px;background:var(--ground);overflow:hidden;}
+  .rule{padding:10px 14px;border-left:1px solid var(--line);}
+  .rule:first-child{border-left:0;}
+  .rule b{display:block;font-size:12px;font-weight:700;color:var(--ink);margin-bottom:3px;}
+  .rule span{font-size:11.5px;color:var(--muted);line-height:1.45;}
+</style>
 </head>
-<body data-index="19" data-total="24">
-<div class="slide" data-item="3">
+<body data-index="19" data-total="20">
+<div class="slide">
   <div class="rail">
-    <span class="tag">ITEM 03</span>
-    <span class="who">영상 기반 엘리베이터 오토패스</span>
+    <span class="who">향후 일정</span>
     <span class="sep"></span>
-    <span class="sec">기대 효과 &middot; 성공 기준 &middot; 대상</span>
-    <span class="no">19 / 24</span>
+    <span class="sec">공식 일정 기준 개발 계획 &middot; 역할 분담</span>
+    <span class="no">19 / 20</span>
   </div>
   <div class="canvas">
-    <h1 class="title">카메라 한 대로 <em>헛정차를 없앤다</em></h1>
-    <div class="row c2 grow">
-      <div class="card">
-        <h3><span class="dot"></span>최종 완성 모습</h3>
-        <ul class="list">
-          <li>카 내부 <b>카메라 1대와 엣지 보드 1개</b>만 추가하면 동작하는, 기존 설비에 덧붙이는 형태</li>
-          <li>현재 탑승 인원과 포화도가 <b>실시간 숫자로 표시</b>되고, 만원이면 해당 층 통과를 권고</li>
-          <li>관제 화면에서 <b>층별 대기 인원 히트맵</b>으로 어느 층이 몰리는지 한눈에 확인</li>
-          <li>시뮬레이터에서 동일 호출 패턴에 대해 <b>기존 방식과 제안 방식의 대기시간을 직접 비교</b></li>
-          <li>영상이 장비 밖으로 나가지 않는 <b>개인정보 무전송 구조</b>를 설계 단계부터 보장</li>
-        </ul>
-      </div>
-      <div class="card fill">
-        <h3><span class="dot"></span>주 사용 대상과 사용 시나리오</h3>
-        <ul class="list">
-          <li><b>대학 &middot; 오피스 빌딩 시설관리팀</b> &mdash; 피크 시간 민원이 집중되는 현장</li>
-          <li><b>엘리베이터 유지보수 업체</b> &mdash; 기존 설비를 교체하지 않고 덧붙이는 개선 상품</li>
-          <li><b>병원 &middot; 물류창고 승강기</b> &mdash; 침대&middot;카트 등 부피가 커 무게 기준이 특히 부정확한 환경</li>
-          <li>확장 &mdash; <b>지하철 게이트 &middot; 셔틀버스 &middot; 강의실</b> 등 혼잡도 판단이 필요한 공간 전반</li>
-        </ul>
-        <p style="margin-top:2px;font-size:13px;color:var(--muted);line-height:1.55;">예시 &mdash; 9시 5분, 1층에서 만원으로 출발한 차가 3&middot;4&middot;5층 호출을 모두 통과하고 8층으로 직행한다. 3층 대기자는 뒤따르는 빈 차를 배정받는다.</p>
-      </div>
+    <h1 class="title">공식 발표 일정에 <em>결과물을 하나씩 맞춰 둡니다</em></h1>
+    <div class="gantt grow">
+      <div></div>
+      <div class="gh mid"><b>2주</b><span>9/14</span></div>
+      <div class="gh"><b>3주</b><span>9/21</span></div>
+      <div class="gh mid"><b>4주</b><span>9/28</span></div>
+      <div class="gh"><b>5주</b><span>10/5</span></div>
+      <div class="gh"><b>6주</b><span>10/12</span></div>
+      <div class="gh mid"><b>7주</b><span>10/19</span></div>
+      <div class="gh"><b>8주</b><span>10/26</span></div>
+      <div class="gh"><b>9주</b><span>11/2</span></div>
+      <div class="gh mid"><b>10주</b><span>11/9</span></div>
+      <div class="gh"><b>11주</b><span>11/16</span></div>
+      <div class="gh"><b>12주</b><span>11/23</span></div>
+      <div class="gh mid"><b>13주</b><span>11/30</span></div>
+      <div class="gh"><b>14주</b><span>12/7</span></div>
+      <div class="gh mid"><b>15주</b><span>12/14</span></div>
+
+      <div class="gl off" style="grid-row:2;grid-column:1">수업 공식 일정</div>
+      <div class="bar ms done" style="grid-row:2;grid-column:2/3">팀 결정<span>주제 토론</span></div>
+      <div class="bar ms now" style="grid-row:2;grid-column:4/5">주제 결정<span>오늘 &middot; 3안 제안</span></div>
+      <div class="bar ms" style="grid-row:2;grid-column:7/8">주제 발표<span>중간고사 대체</span></div>
+      <div class="bar ms" style="grid-row:2;grid-column:10/11">중간 발표<span>1차 피드백</span></div>
+      <div class="bar ms" style="grid-row:2;grid-column:13/14">진행 발표<span>2차 피드백</span></div>
+      <div class="bar ms" style="grid-row:2;grid-column:15/16">최종 발표<span>12/14</span></div>
+
+      <div class="gl" style="grid-row:3;grid-column:1">아이템 확정 &middot; 요구사항 명세</div>
+      <div class="bar b2" style="grid-row:3;grid-column:5/7">확정 &middot; PoC</div>
+
+      <div class="gl" style="grid-row:4;grid-column:1">핵심 모듈 선제 구현</div>
+      <div class="bar b1" style="grid-row:4;grid-column:7/10">가장 불확실한 모듈부터 검증</div>
+
+      <div class="gl" style="grid-row:5;grid-column:1">주요 기능 구현 &middot; 통합</div>
+      <div class="bar b3" style="grid-row:5;grid-column:10/13">기능 단위 개발 &middot; 주 2회 모듈 통합</div>
+
+      <div class="gl" style="grid-row:6;grid-column:1">측정 &middot; 사용자 테스트</div>
+      <div class="bar b4" style="grid-row:6;grid-column:13/15">성공 기준 지표 측정 &middot; 보완</div>
+
+      <div class="gl" style="grid-row:7;grid-column:1">최종 시연 준비</div>
+      <div class="bar b0" style="grid-row:7;grid-column:15/16">발표 준비</div>
     </div>
-    <div>
-      <span class="kicker" style="display:block;margin-bottom:8px;">성공 판단 기준</span>
-      <div class="metrics">
-        <div class="metric"><span class="v">&le; 1.0명</span><span class="k">탑승 인원 추정<br>평균 오차 (MAE)</span></div>
-        <div class="metric"><span class="v">90%</span><span class="k">포화 / 비포화<br>분류 정확도</span></div>
-        <div class="metric"><span class="v">15 FPS</span><span class="k">엣지 장비에서의<br>실시간 처리 속도</span></div>
-        <div class="metric"><span class="v">50%</span><span class="k">시뮬레이션 기준<br>헛정차 감소율</span></div>
-      </div>
+    <div class="callout">일정 설계 원칙 &mdash; <b>발표 때마다 보여 줄 결과물이 하나씩 나오도록</b> 끊었습니다. 7주차 주제 발표 직후 <b>가장 실패 가능성이 큰 모듈부터 먼저 검증</b>해, 10주차 1차 피드백 전에 방향 전환이 가능한 상태를 만듭니다.</div>
+    <div class="rules">
+      <div class="rule"><b>팀원 A &mdash; 코어</b><span>서버 &middot; 모델 등 실패 위험이 가장 큰 핵심 모듈</span></div>
+      <div class="rule"><b>팀원 B &mdash; 인터페이스 &middot; 데이터</b><span>클라이언트 UI, 데이터 확보와 평가 체계</span></div>
+      <div class="rule"><b>리스크 우선 배분</b><span>각자 가장 실패하기 쉬운 항목을 하나씩 책임</span></div>
+      <div class="rule"><b>주 2회 동기화</b><span>진행 공유 1회 + 모듈 통합 1회를 고정 운영</span></div>
     </div>
   </div>
 </div>

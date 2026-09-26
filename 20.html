@@ -2,41 +2,74 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<title>엘리베이터 오토패스 예상 문제</title>
+<title>마무리</title>
 <link rel="stylesheet" href="slide.css">
+<style>
+  .sum{display:flex;flex-direction:column;gap:0;border:1px solid var(--line);border-radius:6px;overflow:hidden;}
+  .sum .r{display:flex;align-items:center;gap:14px;padding:12px 18px;border-top:1px solid var(--line2);}
+  .sum .r:first-child{border-top:0;}
+  .sum .n{font-family:var(--mono);font-size:11px;font-weight:600;color:#fff;background:var(--c);padding:3px 8px;border-radius:3px;flex:none;}
+  .sum .h{font-size:14.5px;font-weight:700;letter-spacing:-0.02em;width:170px;flex:none;}
+  .sum .d{font-size:13.5px;color:var(--ink2);line-height:1.5;}
+  .row.c2.grow>.card{flex:1;}
+  .ask{display:flex;flex-direction:column;gap:9px;flex:1;justify-content:space-evenly;}
+  .card>ul.list:not(.ask){flex:1;justify-content:space-evenly;}
+  .ask li{font-size:13.5px;}
+  .end{text-align:center;padding-top:4px;}
+  .end .big{font-size:26px;font-weight:800;letter-spacing:-0.03em;color:var(--ink);}
+  .end .sm{margin-top:6px;font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.04em;}
+</style>
 </head>
-<body data-index="20" data-total="24">
-<div class="slide" data-item="3">
+<body data-index="20" data-total="20">
+<div class="slide">
   <div class="rail">
-    <span class="tag">ITEM 03</span>
-    <span class="who">영상 기반 엘리베이터 오토패스</span>
+    <span class="who">마무리</span>
     <span class="sep"></span>
-    <span class="sec">예상 문제 &middot; 요소 기술</span>
-    <span class="no">20 / 24</span>
+    <span class="sec">요약 및 논의 요청</span>
+    <span class="no">20 / 20</span>
   </div>
   <div class="canvas">
-    <h1 class="title">예상되는 문제와 대응 방안</h1>
-    <div class="card grow" style="padding-top:12px;">
-      <table class="tbl">
-        <thead>
-          <tr><th style="width:110px">구분</th><th style="width:330px">예상 문제</th><th>대응 방안</th></tr>
-        </thead>
-        <tbody>
-          <tr><td class="name">개인정보</td><td>CCTV 영상은 <b>개인영상정보</b>에 해당해 수집&middot;저장&middot;전송 전 과정이 개인정보보호법의 규제를 받음</td><td><b>엣지 온디바이스 처리</b>로 원본을 저장하지 않고 외부로도 보내지 않음. 밖으로 나가는 것은 인원수&middot;포화도 숫자뿐이며, 학습용 수집분은 얼굴 비식별 처리</td></tr>
-          <tr><td class="name">법규 &middot; 안전</td><td>승강기 제어 계통은 <b>KC &middot; EN 81 안전 인증 대상</b>이라, 학부 프로젝트가 실제 운행에 개입할 수 없음</td><td>출력을 <b>권고(advisory) 신호로 한정</b>하고, 성능 검증은 <b>시뮬레이터</b>에서 수행. 범위를 발표 시점에 명확히 선언</td></tr>
-          <tr><td class="name">데이터셋</td><td>실제 엘리베이터 내부 영상은 <b>확보가 가장 어려운 자원</b> &mdash; 촬영 자체가 동의와 승인을 요구</td><td>교내 승인 절차를 거친 촬영 + <b>Blender 탑뷰 합성 데이터</b> + CrowdHuman &middot; ShanghaiTech 공개셋 전이학습의 3중 전략</td></tr>
-          <tr><td class="name">기술</td><td>밀집 상황의 <b>상호 가림으로 인원이 과소 추정</b>되어, 만원인데 여유로 판단할 위험</td><td>머리 검출과 밀도 추정을 <b>앙상블</b>하고, 승하차 카운팅 결과로 교차 보정. 애매하면 정차하는 보수적 임계값</td></tr>
-          <tr><td class="name">기술</td><td>저전력 엣지 장비의 <b>연산 한계</b>로 실시간 처리가 어려울 수 있음</td><td>INT8 <b>양자화와 TensorRT 최적화</b>, 상황에 따라 해상도&middot;프레임레이트를 적응적으로 조절</td></tr>
-          <tr><td class="name">수용성</td><td>탑승자가 <b>감시당한다고 느끼는</b> 거부감</td><td>영상이 저장되지 않음을 카 내부에 <b>명시적으로 안내</b>하고, 처리 결과를 숫자로만 공개</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div>
-      <span class="kicker" style="display:block;margin-bottom:8px;">제안 방식의 요소 기술</span>
-      <div class="tags">
-        <span>밀집 군중 계수 (Crowd Counting)</span><span>머리 검출 &middot; 객체 추적</span><span>카메라 캘리브레이션 &middot; 호모그래피</span>
-        <span>합성 데이터 생성</span><span>모델 경량화 (양자화 &middot; TensorRT)</span><span>엣지 실시간 추론</span><span>이산사건 시뮬레이션</span>
+    <h1 class="title">정리하면, 세 가지 제안입니다</h1>
+    <div class="sum">
+      <div class="r" style="--c:#B4332C">
+        <span class="n">01</span>
+        <span class="h">오프라인 보드게임</span>
+        <span class="d">골판지 보드와 카드 뭉치 없이, <b>호스트 기기 한 대가 판이자 서버가 되어</b> 마주 앉은 사람들에게 각자의 패를 나눠 줍니다.</span>
       </div>
+      <div class="r" style="--c:#2F5D50">
+        <span class="n">02</span>
+        <span class="h">창작 설정 검증</span>
+        <span class="d">글을 대신 써 주는 대신, <b>쓰던 편집기 위에 띄운 플로팅 창</b>이 쌓인 설정과 어긋나는 지점을 근거와 함께 짚어 줍니다.</span>
+      </div>
+      <div class="r" style="--c:#1B4A8A">
+        <span class="n">03</span>
+        <span class="h">엘리베이터 오토패스</span>
+        <span class="d"><b>CCTV 영상에서 탑승 인원과 적재 상태를 판단</b>하고, 이 층에서 문을 열 필요 없이 <b>통과할지를 결정</b>해 출력합니다.</span>
+      </div>
+    </div>
+    <div class="row c2 grow">
+      <div class="card mark">
+        <h3><span class="dot"></span>피드백을 요청드리는 부분</h3>
+        <ul class="list ask">
+          <li>세 아이템 중 <b>2인 팀 규모와 한 학기 일정에 가장 적합한 것</b>은 무엇인지</li>
+          <li>각 아이템의 <b>범위가 과한지 혹은 부족한지</b> &mdash; 특히 03의 시뮬레이터 검증 방식</li>
+          <li>제시한 <b>성공 기준 지표가 타당한지</b>, 보완할 지표가 있는지</li>
+          <li>03의 <b>데이터 확보 경로</b>에 대한 조언 (교내 촬영 승인 절차 등)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3><span class="dot"></span>다음 단계</h3>
+        <ul class="list">
+          <li><b>5주차 (10/5)</b> &mdash; 오늘 받은 피드백을 반영해 한 아이템으로 확정</li>
+          <li><b>5 &ndash; 6주차</b> &mdash; 요구사항 명세서 &middot; 모듈 인터페이스 규약 &middot; 기술 PoC</li>
+          <li><b>7주차 (10/19) 주제 발표</b>에서 확정안과 구현 계획을 보고</li>
+          <li><b>10주차 (11/9) 중간 발표</b>까지 동작하는 핵심 기능 시연</li>
+        </ul>
+      </div>
+    </div>
+    <div class="end">
+      <div class="big">감사합니다</div>
+      <div class="sm">2026. 09. 28 &nbsp;&middot;&nbsp; 소프트웨어 프로젝트 4주차 제안 발표</div>
     </div>
   </div>
 </div>

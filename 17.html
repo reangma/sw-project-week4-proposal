@@ -2,52 +2,49 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<title>엘리베이터 오토패스 해결 시나리오</title>
+<title>엘리베이터 오토패스 기대 효과</title>
 <link rel="stylesheet" href="slide.css">
 </head>
-<body data-index="17" data-total="24">
+<body data-index="17" data-total="20">
 <div class="slide" data-item="3">
   <div class="rail">
     <span class="tag">ITEM 03</span>
     <span class="who">영상 기반 엘리베이터 오토패스</span>
     <span class="sep"></span>
-    <span class="sec">해결 시나리오 &middot; 접근 방법</span>
-    <span class="no">17 / 24</span>
+    <span class="sec">기대 효과 &middot; 성공 기준 &middot; 대상</span>
+    <span class="no">17 / 20</span>
   </div>
   <div class="canvas">
-    <h1 class="title">무게 대신 <em>눈으로 본다</em></h1>
-    <p class="lede">영상은 엣지 장비 안에서만 처리하고, 밖으로는 인원수와 포화도라는 숫자만 내보냅니다.</p>
-    <div class="row c2b grow">
+    <h1 class="title">카메라 한 대로 <em>헛정차를 없앤다</em></h1>
+    <div class="row c2 grow">
       <div class="card">
-        <h3><span class="dot"></span>동작 시나리오</h3>
-        <ol class="steps">
-          <li>카 내부 카메라와 승강장 카메라 영상을 <b>엣지 디바이스가 직접 수신</b></li>
-          <li>어안 왜곡을 보정한 뒤 <b>머리 검출과 군중 밀도 추정</b>으로 인원수와 점유 면적을 산출</li>
-          <li>도어 라인 통과를 추적해 <b>승하차 인원을 카운팅</b>하고, 포화도(0&ndash;1)를 실시간 보정</li>
-          <li>호출 버튼 &middot; 현재 층 &middot; 운행 방향과 결합해 <b>바이패스 여부를 판단</b></li>
-          <li>영상은 엣지 밖으로 나가지 않고, <b>숫자만 관제 대시보드로 전송</b></li>
-          <li>실제 제어 대신 <b>시뮬레이터에 정책을 적용</b>해 대기시간 개선 효과를 측정</li>
-        </ol>
+        <h3><span class="dot"></span>최종 완성 모습</h3>
+        <ul class="list">
+          <li>카 내부 <b>카메라 1대와 엣지 보드 1개</b>만 추가하면 동작하는, 기존 설비에 덧붙이는 형태</li>
+          <li>현재 탑승 인원과 포화도가 <b>실시간 숫자로 표시</b>되고, 만원이면 해당 층 통과를 권고</li>
+          <li>관제 화면에서 <b>층별 대기 인원 히트맵</b>으로 어느 층이 몰리는지 한눈에 확인</li>
+          <li>시뮬레이터에서 동일 호출 패턴에 대해 <b>기존 방식과 제안 방식의 대기시간을 직접 비교</b></li>
+          <li>영상이 장비 밖으로 나가지 않는 <b>개인정보 무전송 구조</b>를 설계 단계부터 보장</li>
+        </ul>
       </div>
-      <div class="stack">
-        <div class="card fill">
-          <h3><span class="dot"></span>문제 &rarr; 해결 방법 대응</h3>
-          <ul class="list tight">
-            <li>무게 기준의 부정확성 &rarr; <b>실제 점유 면적</b>을 호모그래피로 계산</li>
-            <li>밀집 가림 &rarr; <b>머리 검출 + 밀도 추정 앙상블</b>로 과소 추정 보완</li>
-            <li>대기 수요 미파악 &rarr; <b>승강장 카메라</b>로 층별 대기 인원 산출</li>
-            <li>개인정보 &rarr; <b>온디바이스 처리</b>, 원본 미저장&middot;미전송</li>
-            <li>실제 제어 불가 &rarr; <b>권고 출력 + 시뮬레이터</b>로 효과 검증</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3><span class="dot"></span>사용 기술 &middot; 개발 환경</h3>
-          <div class="tags">
-            <span>YOLOv11 head detection</span><span>CrowdHuman 전이학습</span><span>P2PNet 밀도 추정</span>
-            <span>ByteTrack</span><span>OpenCV 캘리브레이션</span><span>PyTorch &rarr; ONNX &rarr; TensorRT</span>
-            <span>Jetson Orin Nano</span><span>MQTT</span><span>SimPy 이산사건 시뮬레이터</span>
-          </div>
-        </div>
+      <div class="card fill">
+        <h3><span class="dot"></span>주 사용 대상과 사용 시나리오</h3>
+        <ul class="list">
+          <li><b>대학 &middot; 오피스 빌딩 시설관리팀</b> &mdash; 피크 시간 민원이 집중되는 현장</li>
+          <li><b>엘리베이터 유지보수 업체</b> &mdash; 기존 설비를 교체하지 않고 덧붙이는 개선 상품</li>
+          <li><b>병원 &middot; 물류창고 승강기</b> &mdash; 침대&middot;카트 등 부피가 커 무게 기준이 특히 부정확한 환경</li>
+          <li>확장 &mdash; <b>지하철 게이트 &middot; 셔틀버스 &middot; 강의실</b> 등 혼잡도 판단이 필요한 공간 전반</li>
+        </ul>
+        <p style="margin-top:2px;font-size:13px;color:var(--muted);line-height:1.55;">예시 &mdash; 9시 5분, 1층에서 만원으로 출발한 차가 3&middot;4&middot;5층 호출을 모두 통과하고 8층으로 직행한다. 3층 대기자는 뒤따르는 빈 차를 배정받는다.</p>
+      </div>
+    </div>
+    <div>
+      <span class="kicker" style="display:block;margin-bottom:8px;">성공 판단 기준</span>
+      <div class="metrics">
+        <div class="metric"><span class="v">&le; 1.0명</span><span class="k">탑승 인원 추정<br>평균 오차 (MAE)</span></div>
+        <div class="metric"><span class="v">90%</span><span class="k">포화 / 비포화<br>분류 정확도</span></div>
+        <div class="metric"><span class="v">15 FPS</span><span class="k">엣지 장비에서의<br>실시간 처리 속도</span></div>
+        <div class="metric"><span class="v">50%</span><span class="k">시뮬레이션 기준<br>헛정차 감소율</span></div>
       </div>
     </div>
   </div>

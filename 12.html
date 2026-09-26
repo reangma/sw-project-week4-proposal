@@ -2,114 +2,50 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<title>창작 어시스턴트 모듈 구성도</title>
+<title>창작 어시스턴트 기대 효과</title>
 <link rel="stylesheet" href="slide.css">
 </head>
-<body data-index="12" data-total="24">
+<body data-index="12" data-total="20">
 <div class="slide" data-item="2">
   <div class="rail">
     <span class="tag">ITEM 02</span>
     <span class="who">창작 설정 검증 어시스턴트</span>
     <span class="sep"></span>
-    <span class="sec">모듈 구성도</span>
-    <span class="no">12 / 24</span>
+    <span class="sec">기대 효과 &middot; 성공 기준 &middot; 대상</span>
+    <span class="no">12 / 20</span>
   </div>
   <div class="canvas">
-    <h1 class="title">모듈 구성과 상호 관계</h1>
-    <div class="diagram">
-      <svg viewBox="0 0 1010 320" role="img" aria-label="원고 입력에서 모순 경고 출력까지의 처리 파이프라인 구조도">
-        <defs>
-          <marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-            <path d="M0,0 L10,5 L0,10 z" fill="#2F5D50"/>
-          </marker>
-        </defs>
-        <style>
-          .bx{fill:#FFFFFF;stroke:#DCD7CC;stroke-width:1.2}
-          .ac{fill:#ECF3F0;stroke:#C4D7D1;stroke-width:1.2}
-          .t{font-family:Pretendard,"Malgun Gothic",sans-serif;font-size:12.5px;font-weight:600;fill:#16181D;text-anchor:middle}
-          .s{font-family:Pretendard,"Malgun Gothic",sans-serif;font-size:10.5px;fill:#7C7669;text-anchor:middle}
-          .hd{font-family:"JetBrains Mono",monospace;font-size:10px;font-weight:600;fill:#2F5D50;letter-spacing:1.2px;text-anchor:middle}
-          .ln{stroke:#2F5D50;stroke-width:1.4;fill:none;marker-end:url(#ar2)}
-        </style>
-
-        <text class="hd" x="81" y="14">INPUT</text>
-        <text class="hd" x="274" y="14">EXTRACT</text>
-        <text class="hd" x="475" y="14">STORE</text>
-        <text class="hd" x="681" y="14">ANALYZE</text>
-        <text class="hd" x="902" y="14">OUTPUT</text>
-
-        <rect class="bx" x="6" y="40" width="150" height="62" rx="5"/>
-        <text class="t" x="81" y="66">집필 중 원고</text>
-        <text class="s" x="81" y="84">에디터 실시간 입력</text>
-
-        <rect class="bx" x="6" y="130" width="150" height="62" rx="5"/>
-        <text class="t" x="81" y="156">기존 설정집</text>
-        <text class="s" x="81" y="174">기획서 &middot; 위키 문서</text>
-
-        <rect class="bx" x="192" y="40" width="165" height="62" rx="5"/>
-        <text class="t" x="274" y="66">문서 파서</text>
-        <text class="s" x="274" y="84">증분 청킹 &middot; 변경 감지</text>
-
-        <rect class="ac" x="192" y="130" width="165" height="62" rx="5"/>
-        <text class="t" x="274" y="156">엔티티 &middot; 사건 추출기</text>
-        <text class="s" x="274" y="174">인물 &middot; 장소 &middot; 규칙 &middot; 시점</text>
-
-        <rect class="ac" x="393" y="40" width="165" height="62" rx="5"/>
-        <text class="t" x="475" y="66">지식그래프 DB</text>
-        <text class="s" x="475" y="84">속성 타임라인 &middot; 관계</text>
-
-        <rect class="bx" x="393" y="130" width="165" height="62" rx="5"/>
-        <text class="t" x="475" y="156">벡터 인덱스</text>
-        <text class="s" x="475" y="174">원문 근거 검색 (RAG)</text>
-
-        <rect class="ac" x="594" y="26" width="175" height="56" rx="5"/>
-        <text class="t" x="681" y="49">일관성 검증 엔진</text>
-        <text class="s" x="681" y="66">모순 판정 &middot; 신뢰도 산출</text>
-
-        <rect class="bx" x="594" y="96" width="175" height="56" rx="5"/>
-        <text class="t" x="681" y="119">상태 &middot; 감정 추적기</text>
-        <text class="s" x="681" y="136">생사 &middot; 위치 &middot; 관계 변화</text>
-
-        <rect class="bx" x="594" y="166" width="175" height="56" rx="5"/>
-        <text class="t" x="681" y="189">실시간 요약기</text>
-        <text class="s" x="681" y="206">장면 &middot; 챕터 단위 압축</text>
-
-        <rect class="bx" x="805" y="26" width="195" height="56" rx="5"/>
-        <text class="t" x="902" y="49">인라인 모순 경고</text>
-        <text class="s" x="902" y="66">밑줄 + 근거 원문 인용</text>
-
-        <rect class="bx" x="805" y="96" width="195" height="56" rx="5"/>
-        <text class="t" x="902" y="119">캐릭터 타임라인 뷰</text>
-        <text class="s" x="902" y="136">시간축 상태 변화 패널</text>
-
-        <rect class="bx" x="805" y="166" width="195" height="56" rx="5"/>
-        <text class="t" x="902" y="189">자동 챕터 요약</text>
-        <text class="s" x="902" y="206">설정 카드 사이드바</text>
-
-        <rect class="ac" x="192" y="248" width="577" height="48" rx="5"/>
-        <text class="t" x="480" y="269">LLM 게이트웨이</text>
-        <text class="s" x="480" y="286">Claude API &middot; 로컬 LLM 선택 &middot; 구조화 출력(JSON Schema) &middot; 결과 캐싱</text>
-
-        <path class="ln" d="M158,71 L188,71"/>
-        <path class="ln" d="M158,161 L188,161"/>
-        <path class="ln" d="M274,104 L274,126"/>
-        <path class="ln" d="M359,71 L389,71"/>
-        <path class="ln" d="M359,161 L389,161"/>
-        <path class="ln" d="M560,68 L590,56"/>
-        <path class="ln" d="M560,152 L590,124"/>
-        <path class="ln" d="M560,170 L590,192"/>
-        <path class="ln" d="M771,54 L801,54"/>
-        <path class="ln" d="M771,124 L801,124"/>
-        <path class="ln" d="M771,194 L801,194"/>
-        <path class="ln" d="M274,246 L274,196"/>
-        <path class="ln" d="M681,246 L681,226"/>
-      </svg>
+    <h1 class="title">스스로 자라는 설정 위키 + <em>설정 맞춤법 검사기</em></h1>
+    <div class="row c2 grow">
+      <div class="card">
+        <h3><span class="dot"></span>최종 완성 모습</h3>
+        <ul class="list">
+          <li>쓰던 편집기 위에 띄운 <b>플로팅 앱</b> 패널에 <b>설정 위키가 자동으로 채워지고 갱신</b>됨</li>
+          <li>기존 설정과 어긋나는 문장에는 <b>맞춤법 검사기처럼 밑줄</b>이 그어지고, 클릭하면 근거가 된 원문 위치로 이동</li>
+          <li>캐릭터를 선택하면 <b>생사 &middot; 위치 &middot; 소지품 &middot; 관계 &middot; 감정</b>의 변화가 시간축에 펼쳐지는 타임라인 뷰</li>
+          <li>장면이 끝날 때마다 <b>자동 생성되는 챕터 요약</b>으로 이전 내용을 다시 읽지 않아도 됨</li>
+          <li>&ldquo;이건 의도한 설정&rdquo; 버튼으로 <b>예외를 등록</b>하면 같은 경고가 반복되지 않음</li>
+        </ul>
+      </div>
+      <div class="card fill">
+        <h3><span class="dot"></span>주 사용 대상과 사용 시나리오</h3>
+        <ul class="list">
+          <li><b>웹소설 연재 작가</b> &mdash; 매일 마감에 쫓기며 수백 회차의 설정을 혼자 관리하는 층</li>
+          <li><b>게임 시나리오 &middot; 기획자</b> &mdash; 여러 명이 동시에 문서를 고쳐 충돌이 잦은 팀</li>
+          <li><b>TRPG 게임 마스터</b> &mdash; 세션마다 즉흥으로 만든 설정을 축적해야 하는 경우</li>
+          <li><b>웹툰 스토리 작가</b> &mdash; 그림 작업과 분리되어 설정 확인이 늦어지는 구조</li>
+        </ul>
+        <p style="margin-top:2px;font-size:13px;color:var(--muted);line-height:1.55;">예시 &mdash; 120화를 쓰던 중 조연의 이름을 적자 밑줄이 그어진다. 클릭하니 &ldquo;47화에서 사망&rdquo;이라는 원문이 그대로 뜬다. 연재 전에 수정한다.</p>
+      </div>
     </div>
-    <div class="legend">
-      <i><span class="sw" style="background:#ECF3F0;border:1px solid #C4D7D1"></span>핵심 모듈 (난이도 상)</i>
-      <i><span class="sw" style="background:#fff;border:1px solid #DCD7CC"></span>일반 모듈</i>
-      <i><svg width="26" height="8"><line x1="0" y1="4" x2="26" y2="4" stroke="#2F5D50" stroke-width="1.4"/></svg>데이터 흐름</i>
-      <i>원고 원문은 외부로 나가지 않고, 게이트웨이가 근거 조각만 모델에 전달</i>
+    <div>
+      <span class="kicker" style="display:block;margin-bottom:8px;">성공 판단 기준</span>
+      <div class="metrics">
+        <div class="metric"><span class="v">80%</span><span class="k">모순 주입 테스트셋<br>탐지율 (Recall)</span></div>
+        <div class="metric"><span class="v">20%</span><span class="k">오탐율 상한<br>(False Positive)</span></div>
+        <div class="metric"><span class="v">5분</span><span class="k">10만 자 원고<br>최초 인덱싱 시간</span></div>
+        <div class="metric"><span class="v">100%</span><span class="k">경고 1건당<br>원문 근거 인용률</span></div>
+      </div>
     </div>
   </div>
 </div>

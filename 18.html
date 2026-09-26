@@ -2,113 +2,87 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<title>엘리베이터 오토패스 모듈 구성도</title>
+<title>세 아이템 비교</title>
 <link rel="stylesheet" href="slide.css">
+<style>
+  .cmp td:nth-child(2){border-left:2px solid #B4332C;}
+  .cmp td:nth-child(3){border-left:2px solid #2F5D50;}
+  .cmp td:nth-child(4){border-left:2px solid #1B4A8A;}
+  .cmp th:nth-child(2){color:#B4332C;border-left:2px solid #B4332C;}
+  .cmp th:nth-child(3){color:#2F5D50;border-left:2px solid #2F5D50;}
+  .cmp th:nth-child(4){color:#1B4A8A;border-left:2px solid #1B4A8A;}
+  .cmp{height:100%;}
+  .cmp th,.cmp td{font-size:13px;padding:8px 11px;}
+  .cmp td:first-child{font-weight:700;color:var(--ink);white-space:nowrap;background:var(--ground);}
+</style>
 </head>
-<body data-index="18" data-total="24">
-<div class="slide" data-item="3">
+<body data-index="18" data-total="20">
+<div class="slide">
   <div class="rail">
-    <span class="tag">ITEM 03</span>
-    <span class="who">영상 기반 엘리베이터 오토패스</span>
+    <span class="who">세 아이템 비교</span>
     <span class="sep"></span>
-    <span class="sec">모듈 구성도</span>
-    <span class="no">18 / 24</span>
+    <span class="sec">선정 판단을 위한 정리</span>
+    <span class="no">18 / 20</span>
   </div>
   <div class="canvas">
-    <h1 class="title">모듈 구성과 상호 관계</h1>
-    <div class="diagram">
-      <svg viewBox="0 0 960 330" role="img" aria-label="CCTV 입력에서 바이패스 판단까지의 엣지 처리 구조도">
-        <defs>
-          <marker id="ar3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-            <path d="M0,0 L10,5 L0,10 z" fill="#1B4A8A"/>
-          </marker>
-          <marker id="ar3d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-            <path d="M0,0 L10,5 L0,10 z" fill="#9AA7B8"/>
-          </marker>
-        </defs>
-        <style>
-          .bx{fill:#FFFFFF;stroke:#DCD7CC;stroke-width:1.2}
-          .ac{fill:#EEF2F8;stroke:#C7D4E5;stroke-width:1.2}
-          .zone{fill:#F8FAFC;stroke:#1B4A8A;stroke-width:1.3;stroke-dasharray:6 4}
-          .t{font-family:Pretendard,"Malgun Gothic",sans-serif;font-size:12.5px;font-weight:600;fill:#16181D;text-anchor:middle}
-          .s{font-family:Pretendard,"Malgun Gothic",sans-serif;font-size:10.5px;fill:#7C7669;text-anchor:middle}
-          .zt{font-family:Pretendard,"Malgun Gothic",sans-serif;font-size:11.5px;font-weight:700;fill:#1B4A8A}
-          .ln{stroke:#1B4A8A;stroke-width:1.4;fill:none;marker-end:url(#ar3)}
-          .lnd{stroke:#9AA7B8;stroke-width:1.2;fill:none;stroke-dasharray:4 3;marker-end:url(#ar3d)}
-        </style>
-
-        <rect class="bx" x="6" y="60" width="150" height="58" rx="5"/>
-        <text class="t" x="81" y="84">카 내부 CCTV</text>
-        <text class="s" x="81" y="101">천장 광각 1대</text>
-
-        <rect class="bx" x="6" y="160" width="150" height="58" rx="5"/>
-        <text class="t" x="81" y="184">승강장 CCTV</text>
-        <text class="s" x="81" y="201">층별 대기 구역</text>
-
-        <rect class="zone" x="190" y="14" width="230" height="310" rx="7"/>
-        <text class="zt" x="204" y="36">엣지 디바이스 &mdash; 영상 반출 없음</text>
-
-        <rect class="bx" x="206" y="52" width="198" height="52" rx="5"/>
-        <text class="t" x="305" y="74">전처리 &middot; 왜곡 보정</text>
-        <text class="s" x="305" y="91">어안 렌즈 &middot; 조명 정규화</text>
-
-        <rect class="ac" x="206" y="120" width="198" height="52" rx="5"/>
-        <text class="t" x="305" y="142">머리 검출 &middot; 밀도 추정</text>
-        <text class="s" x="305" y="159">YOLO + P2PNet 앙상블</text>
-
-        <rect class="bx" x="206" y="188" width="198" height="52" rx="5"/>
-        <text class="t" x="305" y="210">추적 &middot; 승하차 카운팅</text>
-        <text class="s" x="305" y="227">ByteTrack 라인 통과</text>
-
-        <rect class="ac" x="206" y="256" width="198" height="48" rx="5"/>
-        <text class="t" x="305" y="276">포화도 산출</text>
-        <text class="s" x="305" y="293">점유 면적 기반 0 &ndash; 1</text>
-
-        <rect class="bx" x="455" y="30" width="200" height="62" rx="5"/>
-        <text class="t" x="555" y="53">엘리베이터 상태</text>
-        <text class="s" x="555" y="70">호출 버튼 &middot; 현재 층 &middot; 방향</text>
-
-        <rect class="ac" x="455" y="128" width="200" height="82" rx="5"/>
-        <text class="t" x="555" y="158">바이패스 의사결정 엔진</text>
-        <text class="s" x="555" y="176">포화도 + 대기 인원 + 운행 상태</text>
-        <text class="s" x="555" y="192">보수적 임계값 &middot; 권고 산출</text>
-
-        <rect class="bx" x="700" y="40" width="200" height="56" rx="5"/>
-        <text class="t" x="800" y="63">바이패스 권고 신호</text>
-        <text class="s" x="800" y="80">해당 층 통과 권고</text>
-
-        <rect class="bx" x="700" y="112" width="200" height="56" rx="5"/>
-        <text class="t" x="800" y="135">관제 대시보드</text>
-        <text class="s" x="800" y="152">층별 혼잡 히트맵</text>
-
-        <rect class="bx" x="700" y="184" width="200" height="56" rx="5"/>
-        <text class="t" x="800" y="207">운행 로그 &middot; 통계</text>
-        <text class="s" x="800" y="224">헛정차 &middot; 대기시간 집계</text>
-
-        <rect class="bx" x="455" y="248" width="445" height="60" rx="5"/>
-        <text class="t" x="677" y="272">이산사건 엘리베이터 시뮬레이터</text>
-        <text class="s" x="677" y="290">바이패스 정책 적용 &middot; 평균 대기시간 &middot; 헛정차 감소율 검증 루프</text>
-
-        <path class="ln" d="M158,86 L202,78"/>
-        <path class="ln" d="M158,186 L202,148"/>
-        <path class="ln" d="M305,106 L305,117"/>
-        <path class="ln" d="M305,174 L305,185"/>
-        <path class="ln" d="M305,242 L305,253"/>
-        <path class="ln" d="M406,280 C434,280 432,180 451,172"/>
-        <path class="ln" d="M555,94 L555,125"/>
-        <path class="ln" d="M657,155 L696,70"/>
-        <path class="ln" d="M657,166 L696,140"/>
-        <path class="ln" d="M657,178 L696,210"/>
-        <path class="ln" d="M530,212 L530,245"/>
-        <path class="lnd" d="M590,245 L590,212"/>
-      </svg>
+    <h1 class="title">무엇을 고를 것인가</h1>
+    <div class="card grow" style="padding-top:10px;">
+      <table class="tbl cmp">
+        <thead>
+          <tr>
+            <th style="width:112px">&nbsp;</th>
+            <th style="width:32%">01 오프라인 보드게임</th>
+            <th style="width:32%">02 창작 설정 검증</th>
+            <th>03 엘리베이터 오토패스</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>문제 영역</td>
+            <td>대면 모임의 여가 &middot; 물리 구성물 대체</td>
+            <td>장문 창작물의 설정 일관성</td>
+            <td>건물 설비 운영 효율 &middot; 혼잡도</td>
+          </tr>
+          <tr>
+            <td>핵심 기술</td>
+            <td>임베디드 서버 &middot; 실시간 상태 동기화 &middot; 듀얼 뷰 렌더링</td>
+            <td>LLM &middot; RAG &middot; 지식그래프 &middot; 증분 분석</td>
+            <td>객체 검출 &middot; 밀도 추정 &middot; 엣지 추론 &middot; 시뮬레이션</td>
+          </tr>
+          <tr>
+            <td>결과물 형태</td>
+            <td>Android 앱 + 웹 클라이언트 (즉시 시연 가능)</td>
+            <td>플로팅 데스크톱 앱 + 백엔드 서비스</td>
+            <td>CCTV 영상 입력 &rarr; 탑승 인원&middot;적재 상태 판단 + 정차/통과 결정 출력</td>
+          </tr>
+          <tr>
+            <td>데이터 &middot; 환경</td>
+            <td><span class="ok">부담 없음</span> &mdash; 팀 보유 기기로 충분</td>
+            <td><span class="nk">보통</span> &mdash; 공개 소설 기반 벤치마크 자체 구축</td>
+            <td><span class="nk">가장 큰 부담</span> &mdash; 실제 영상 확보에 승인 필요</td>
+          </tr>
+          <tr>
+            <td>2인 팀 난이도</td>
+            <td>중 &mdash; 서버/클라이언트로 깔끔히 양분</td>
+            <td>중상 &mdash; 파이프라인과 UI로 양분 가능</td>
+            <td>상 &mdash; 모델과 데이터&middot;시뮬레이터로 양분</td>
+          </tr>
+          <tr>
+            <td>차별 포인트</td>
+            <td>구성물 없이도 개인 패와 대면 감각 유지</td>
+            <td>생성이 아닌 검증, 근거를 함께 제시</td>
+            <td>무게가 아닌 실제 점유 면적으로 판단</td>
+          </tr>
+          <tr>
+            <td>최대 리스크</td>
+            <td>기기&middot;OS 파편화로 인한 연결 불안정</td>
+            <td>오탐 누적에 따른 신뢰 상실</td>
+            <td>학습 데이터 확보 실패</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    <div class="legend">
-      <i><span class="sw" style="background:#EEF2F8;border:1px solid #C7D4E5"></span>핵심 모듈 (난이도 상)</i>
-      <i><span class="sw" style="background:#fff;border:1px solid #DCD7CC"></span>일반 모듈</i>
-      <i><svg width="26" height="8"><line x1="0" y1="4" x2="26" y2="4" stroke="#1B4A8A" stroke-width="1.3" stroke-dasharray="6 4"/></svg>개인정보 경계 &mdash; 이 안에서만 영상 처리</i>
-      <i><svg width="26" height="8"><line x1="0" y1="4" x2="26" y2="4" stroke="#9AA7B8" stroke-width="1.2" stroke-dasharray="4 3"/></svg>정책 피드백</i>
-    </div>
+    <div class="callout">세 아이템 모두 <b>15주차(12/14) 최종 발표까지 완성 가능한 범위</b>로 설계했습니다. 오늘 받는 피드백을 반영해 <b>5주차까지 하나로 확정</b>하고, <b>7주차 주제 발표</b>에서 확정안과 구현 계획을 보고하겠습니다.</div>
   </div>
 </div>
 <script src="slide.js"></script>
